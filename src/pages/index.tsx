@@ -1,9 +1,19 @@
+import { TextAnimate } from '@components/.';
 import { Pagelayout } from '@layout/.';
 
 const Home = () => {
     return (
         <Pagelayout title='Get your products delivered just in time.'>
-            <h1>Home page</h1>
+            <section>
+                <TextAnimate />
+            </section>
+            <style jsx>
+                {`
+                    section {
+                        background-color: #fff2d9;
+                    }
+                `}
+            </style>
         </Pagelayout>
     );
 };

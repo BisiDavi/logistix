@@ -1,0 +1,48 @@
+.footer {
+    background-color: black;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    padding: 10px 20px;
+}
+
+.footer h3 {
+    margin: 20px 0px;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer li {
+    list-style: none;
+    margin: 5px 0px;
+}
+
+.footer ul {
+    padding: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+    font-family: 16px;
+}
+
+.footer a:hover {
+    color: red;
+}
+
+.socialIcons {
+    margin: 10px 0;
+}
+
+.socialIcons ul {
+    display: flex;
+    align-items: center;
+}
+
+.socialIcons li:first-child {
+    margin: 0px 15px 0px 0px;
+}
+
+.socialIcons li {
+    margin: 0px 20px;
+}

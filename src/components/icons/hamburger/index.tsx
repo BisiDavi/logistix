@@ -3,7 +3,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 const Hamburger = ({ onClick }) => {
     return (
         <div onClick={onClick}>
-            <AiOutlineMenu />
+            <AiOutlineMenu size='30px' />
         </div>
     );
 };
