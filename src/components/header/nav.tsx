@@ -11,7 +11,7 @@ const Nav: FC<NavProps> = ({ onOpen }) => {
                 <Col xs={2}>
                     <Hamburger onClick={onOpen} />
                 </Col>
-                <Col xs={4}>
+                <Col xs={6}>
                     <Logo />
                 </Col>
                 <Col xs={3}>
