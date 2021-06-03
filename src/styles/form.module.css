@@ -1,0 +1,45 @@
+.form {
+    width: 80%;
+    margin: auto;
+}
+.form span {
+    height: 100%;
+}
+
+.text {
+    background-color: white;
+    border-radius: 0px;
+    border-right: white;
+}
+
+.form input {
+    border-radius: 0px;
+}
+
+.formGroup {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.form span .formGroup {
+    width: 85%;
+    margin: 0px;
+}
+
+.form span .prepend {
+    width: 15%;
+}
+
+.form button {
+    width: 80%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px;
+}

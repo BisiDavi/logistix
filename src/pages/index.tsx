@@ -1,14 +1,17 @@
+import React from 'react';
 import { TextAnimate } from '@components/.';
+import DeliveryForm from '@components/form/deliveryForm';
 import { Pagelayout } from '@layout/.';
+
 //#c85a5f
+
 const Home = () => {
     return (
         <Pagelayout title='Get your products delivered just in time.'>
             <>
                 <section>
-                    <div className='animateText'>
-                        <TextAnimate />
-                    </div>
+                    <TextAnimate />
+                    <DeliveryForm />
                 </section>
                 <style jsx>
                     {`
@@ -18,13 +21,6 @@ const Home = () => {
                             width: 100%;
                             margin-top: -20px;
                             padding-top: 40px;
-                        }
-                        .animateText {
-                            background-color: rgba(255, 255, 255, 0.7);
-                            backdrop-filter: blur(5px);
-                            margin: auto;
-                            width: 90%;
-                            display: flex;
                         }
                     `}
                 </style>

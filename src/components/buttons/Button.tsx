@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Button = ({ text }) => {
+const Button: FC<buttonProps> = ({ text, onClick }) => {
     return (
         <>
-            <button className='btn'>{text}</button>
+            <button onClick={onClick} className='btn'>
+                {text}
+            </button>
         </>
     );
 };
+
+interface buttonProps {
+    text: string;
+    onClick?: (e:any) => void;
+}
 
 export default Button;
