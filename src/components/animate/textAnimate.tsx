@@ -1,10 +1,9 @@
 import React from 'react';
-import { Logo } from '@components/icons';
 import TextLoop from 'react-text-loop';
 import styles from '@styles/textAnimate.module.css';
 
 const TextAnimate = () => {
-    const textArray = ['Urgent ', 'Timely', 'Affordable'];
+    const textArray = ['Quick ', 'Safe'];
 
     return (
         <div className={styles.animateText}>

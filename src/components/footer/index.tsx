@@ -9,7 +9,7 @@ const Footer: FC = () => {
     return (
         <Container as='footer' className={styles.footer} fluid>
             <Row>
-                <Col xs={12}>
+                <Col xs={6}>
                     <Logo />
                 </Col>
                 <Col xs={12}>{displayLinks(menuLinks)}</Col>
