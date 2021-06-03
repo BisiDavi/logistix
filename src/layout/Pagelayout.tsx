@@ -1,10 +1,12 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC, useState } from 'react';
 import Head from 'next/head';
 import { Nav, Footer, Sidebar } from '@components/.';
 import { useToggle } from '@hooks/.';
 
 const Pagelayout: FC<PageLayoutProps> = ({ children, title }): JSX.Element => {
     const { toggle, toggled } = useToggle();
+
+
     return (
         <div className='logisitix position-relative'>
             <Head>

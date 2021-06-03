@@ -14,6 +14,7 @@
 
 .form input {
     border-radius: 0px;
+    height: 40px;
 }
 
 .formGroup {
@@ -28,6 +29,7 @@
 
 .form span .prepend {
     width: 15%;
+    height: 40px;
 }
 
 .form button {
@@ -42,4 +44,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 0px;
+}
+
+.form button:hover {
+    color: red;
 }

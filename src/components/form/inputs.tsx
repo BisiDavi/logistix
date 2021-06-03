@@ -16,7 +16,10 @@ export const Input = ({ field, formik }) => {
                     !Boolean(formik.errors[field.name])
                 }
             />
-            <Form.Control.Feedback className='text-center' type='invalid'>
+            <Form.Control.Feedback
+                className='d-block text-center'
+                type='invalid'
+            >
                 {formik.errors[field.name]}
             </Form.Control.Feedback>
         </Form.Group>
