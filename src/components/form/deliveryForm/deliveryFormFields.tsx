@@ -3,15 +3,9 @@ import { Input } from '../inputs';
 
 export const formFieldArray = [
     {
-        name: 'fullName',
+        name: 'parcel',
         type: 'text',
-        placeholder: 'Full name',
-        field: 'input',
-    },
-    {
-        name: 'phoneNumber',
-        type: 'number',
-        placeholder: 'Phone Number',
+        placeholder: 'What do you want to deliver?',
         field: 'input',
     },
     {

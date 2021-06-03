@@ -14,8 +14,7 @@ const DeliveryForm = () => {
     const formik = useFormik({
         initialValues: {
             deliveryAddress: '',
-            fullName: '',
-            phoneNumber: '',
+            parcel: '',
             pickupAddress: '',
             state: 'lagos',
         },
