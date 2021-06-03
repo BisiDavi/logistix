@@ -12,12 +12,16 @@ const Footer: FC = () => {
                 <Col xs={6}>
                     <Logo />
                 </Col>
-                <Col xs={12}>{displayLinks(menuLinks)}</Col>
-                <Col xs={12}>
+            </Row>
+            <Row className='justify-content-between'>
+                <Col xs={5}>{displayLinks(menuLinks)}</Col>
+                <Col xs={4} className='px-0'>
+                    <div className='policies'>{displayLinks(policies)}</div>
+                </Col>
+                <Col className='d-flex flex-column align-items-center' xs={12}>
                     <div className={styles.socialIcons}>
                         {displayLinks(socialIcons)}
                     </div>
-                    <div className='policies'>{displayLinks(policies)}</div>
                     <div className='copyright'>
                         <p>&copy; 2021 Logistix.</p>
                     </div>

@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 
-const Button: FC<buttonProps> = ({ text, onClick }) => {
+const Button: FC<buttonProps> = ({ text, onClick, type }) => {
     return (
         <>
-            <button onClick={onClick} className='btn'>
+            <button type={type} onClick={onClick} className='btn'>
                 {text}
             </button>
         </>
@@ -12,7 +12,8 @@ const Button: FC<buttonProps> = ({ text, onClick }) => {
 
 interface buttonProps {
     text: string;
-    onClick?: (e:any) => void;
+    type?: 'button' | 'submit' | 'reset';
+    onClick?: () => void;
 }
 
 export default Button;

@@ -22,10 +22,7 @@ const DeliveryForm = () => {
             console.log('values', values);
         },
     });
-    const displayMoreFields = (ev) => {
-        ev.preventDefault();
-        setShowMore(true);
-    };
+    const displayMoreFields = () => setShowMore(true);
 
     const prependInput = {
         name: 'deliveryAddress',
@@ -33,18 +30,28 @@ const DeliveryForm = () => {
         type: 'text',
     };
 
-    //const submitHandler = (e) => {
-    //    e.preventDefault();
-    //    formik.handleSubmit();
-    //};
+    const submitHandler = (e) => {
+        e.preventDefault();
+        formik.handleSubmit();
+    };
 
     return (
-        <Form className={styles.form}>
+        <Form className={styles.form} onSubmit={submitHandler}>
             <span>
                 <PrependInput icon='map' field={prependInput} formik={formik} />
             </span>
-            {displayFormFields(formFieldArray, formik)}
-            <Button onClick={displayMoreFields} text='Order' />
+            {showMore ? (
+                <>
+                    {displayFormFields(formFieldArray, formik)}
+                    <Button type='submit' text='Order' />
+                </>
+            ) : (
+                <Button
+                    type='button'
+                    onClick={displayMoreFields}
+                    text='Continue'
+                />
+            )}
         </Form>
     );
 };
