@@ -7,7 +7,9 @@ const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
 
     return (
         <div className='logisitix position-relative'>
-            <header>{/*<Nav onOpen={() => toggled(true)} />*/}</header>
+            <header>
+                <Nav onOpen={() => toggled(true)} />
+            </header>
             {toggle && <Sidebar onClose={() => toggled(false)} />}
             <main>{children}</main>
             <Footer />
