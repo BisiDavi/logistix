@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
         const end = () => {
             setTimeout(() => {
                 setLoading(false);
-            }, 1500);
+            }, 1200);
         };
         Router.events.on('routeChangeStart', start);
         Router.events.on('routeChangeComplete', end);
