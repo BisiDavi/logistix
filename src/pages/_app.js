@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {Pagelayout} from '@layout/.'
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,7 +40,9 @@ function MyApp({ Component, pageProps }) {
                     content='initial-scale=1.0, width=device-width'
                 />
             </Head>
-            <Component {...pageProps} />
+            <Pagelayout>
+                <Component {...pageProps} />
+            </Pagelayout>
         </>
     );
 }

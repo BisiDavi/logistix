@@ -4,11 +4,12 @@ import { Logo } from '@components/icons';
 import { displayLinks } from '@utils/.';
 import { menuLinks, policies, socialIcons } from './footerContent';
 import styles from '../../styles/footer.module.css';
+import { BottomMenu } from '@components/menu';
 
 const Footer: FC = () => {
     return (
         <Container as='footer' className={styles.footer} fluid>
-            <Row>
+            {/*<Row>
                 <Col xs={6}>
                     <Logo />
                 </Col>
@@ -26,7 +27,8 @@ const Footer: FC = () => {
                         <p>&copy; 2021 Logistix.</p>
                     </div>
                 </Col>
-            </Row>
+            </Row>*/}
+            <BottomMenu />
         </Container>
     );
 };

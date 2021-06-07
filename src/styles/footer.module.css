@@ -1,8 +1,9 @@
 .footer {
-    background-color: dimgray;
+    background-color: white;
     font-family: 'Roboto', sans-serif;
     color: white;
-    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
 }
 
 .footer h3 {
