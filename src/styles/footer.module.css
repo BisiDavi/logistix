@@ -4,6 +4,10 @@
     color: white;
     position: fixed;
     bottom: 0;
+    height: 60px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
 }
 
 .footer h3 {
