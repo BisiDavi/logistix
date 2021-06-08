@@ -4,7 +4,7 @@ import { PageTitle } from '@components/.';
 const Marketplace = () => {
     return (
         <>
-            <PageTitle title="dispatcher's market place" />
+            <PageTitle title='Market place' />
             <h1>Hello, Marketplace</h1>
         </>
     );

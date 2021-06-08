@@ -4,7 +4,7 @@ import { PageTitle } from '@components/.';
 const Profile = () => {
     return (
         <>
-            <PageTitle title='view your profile' />
+            <PageTitle title='Profile' />
             <h1>Hello, Profile Page</h1>
         </>
     );
