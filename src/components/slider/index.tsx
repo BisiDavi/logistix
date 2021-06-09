@@ -16,8 +16,8 @@ const ImageSlider = () => {
     };
     const imageArray = [
         '/deliveryBoy.svg',
-        '/sliderImage.svg',
-        '/sliderImage2.svg',
+        '/sliderImage.webp',
+        '/sliderImage2.webp',
     ];
     return (
         <>
@@ -26,7 +26,7 @@ const ImageSlider = () => {
                     <div className='imageHolder' key={index}>
                         <Image
                             height={250}
-                            width={250}
+                            width={300}
                             layout='responsive'
                             src={image}
                             alt='logistix banner'
