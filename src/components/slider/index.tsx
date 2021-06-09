@@ -26,7 +26,7 @@ const ImageSlider = () => {
                     <div className='imageHolder' key={index}>
                         <Image
                             height={250}
-                            width={300}
+                            width={250}
                             layout='responsive'
                             src={image}
                             alt='logistix banner'
