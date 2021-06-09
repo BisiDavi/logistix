@@ -5,3 +5,4 @@ export { default as Sidebar } from './sidebar';
 export { default as TextAnimate } from './animate/textAnimate';
 export { default as PageTitle } from './header/PageTitle';
 export { default as Loading } from './loading';
+export { default as ImageSlider } from './slider';

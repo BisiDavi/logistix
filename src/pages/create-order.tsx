@@ -1,11 +1,12 @@
 import React from 'react';
 import { PageTitle } from '@components/.';
+import DeliveryForm from '@components/form/deliveryForm';
 
 const CreateOrder = () => {
     return (
         <>
             <PageTitle title='create order' />
-            <h1>Hello , Craete Order</h1>
+            <DeliveryForm />
         </>
     );
 };

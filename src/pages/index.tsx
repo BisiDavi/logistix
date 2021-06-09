@@ -1,8 +1,5 @@
 import React from 'react';
-import { PageTitle, TextAnimate } from '@components/.';
-import DeliveryForm from '@components/form/deliveryForm';
-
-//#c85a5f
+import { PageTitle, TextAnimate,ImageSlider } from '@components/.';
 
 const Home = () => {
     return (
@@ -10,7 +7,7 @@ const Home = () => {
             <PageTitle title='Get your products delivered just in time.' />
             <section>
                 <TextAnimate />
-                <DeliveryForm />
+								<ImageSlider />
             </section>
             <section>
                 <div className='image-container'>section 1</div>
