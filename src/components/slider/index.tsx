@@ -7,9 +7,10 @@ const ImageSlider = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        autoplayspeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1,
+        autoplay: true,
     };
     return (
         <Slider {...settings}>
@@ -22,6 +23,18 @@ const ImageSlider = () => {
             <div>
                 <img src='/sliderImage2.webp' />
             </div>
+            <style jsx>
+                {`
+                    div {
+                        height: 100%;
+                        width: 100%;
+                    }
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                `}
+            </style>
         </Slider>
     );
 };
