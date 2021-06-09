@@ -6,14 +6,14 @@ const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
     const { toggle, toggled } = useToggle();
 
     return (
-        <div className='logisitix position-relative'>
+        <>
             <header>
                 <Nav onOpen={() => toggled(true)} />
             </header>
             {toggle && <Sidebar onClose={() => toggled(false)} />}
             <main>{children}</main>
             <Footer />
-        </div>
+        </>
     );
 };
 

@@ -1,5 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 import Slider from 'react-slick';
+import styles from './slider.module.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -12,30 +14,35 @@ const ImageSlider = () => {
         slidesToScroll: 1,
         autoplay: true,
     };
+    const imageArray = [
+        '/deliveryBoy.svg',
+        '/sliderImage.webp',
+        '/sliderImage2.webp',
+    ];
     return (
-        <Slider {...settings}>
-            <div>
-                <img src='/deliveryBoy.svg' />
-            </div>
-            <div>
-                <img src='/sliderImage.webp' />
-            </div>
-            <div>
-                <img src='/sliderImage2.webp' />
-            </div>
+        <>
+            <Slider className={styles.Slider} {...settings}>
+                {imageArray.map((image, index) => (
+                    <div className='imageHolder' key={index}>
+                        <Image
+                            height={250}
+                            width={300}
+                            layout='responsive'
+                            src={image}
+                            alt='logistix banner'
+                        />
+                    </div>
+                ))}
+            </Slider>
             <style jsx>
                 {`
-                    div {
-                        height: 100%;
-                        width: 100%;
-                    }
-                    img {
+                    .imageHolder {
                         height: 100%;
                         width: 100%;
                     }
                 `}
             </style>
-        </Slider>
+        </>
     );
 };
 

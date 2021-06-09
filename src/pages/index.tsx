@@ -7,7 +7,7 @@ const Home = () => {
             <PageTitle title='Get your products delivered just in time.' />
             <section>
                 <TextAnimate />
-								{/*<ImageSlider />*/}
+								<ImageSlider />
             </section>
             <section>
                 <div className='image-container'>section 1</div>
