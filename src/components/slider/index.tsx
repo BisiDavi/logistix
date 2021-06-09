@@ -16,8 +16,8 @@ const ImageSlider = () => {
     };
     const imageArray = [
         '/deliveryBoy.svg',
-        '/sliderImage.webp',
-        '/sliderImage2.webp',
+        '/sliderImage.svg',
+        '/sliderImage2.svg',
     ];
     return (
         <>
