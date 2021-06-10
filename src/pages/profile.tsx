@@ -15,10 +15,8 @@ const Profile = () => {
             <div className='welcome-note d-flex mx-auto'>
                 <TypewriterEffect words={typeWords} />
             </div>
-
-            <h3>Your Parcel Details</h3>
             <div className='parcel-details'>
-                <div className='user-profile mt-5'>
+                <div className='user-profile mt-2'>
                     <div className='profile-icon'></div>
                     <div className='user-details'>
                         <h5>Name:</h5>
@@ -43,6 +41,10 @@ const Profile = () => {
                     .welcome-note {
                         height: 30px;
                     }
+                    .pickup {
+                        font-size: 20px;
+                        text-align: center;
+                    }
                     .confirm-delivery {
                         display: flex;
                         align-items: center;
@@ -51,10 +53,21 @@ const Profile = () => {
                     .confirm-delivery h5 {
                         font-size: 14px;
                     }
-
                     .parcel-details h5 {
                         font-size: 16px;
                         font-family: sans-serif;
+                    }
+                    .user-profile {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                    .profile-icon {
+                        height: 100px;
+                        width: 100px;
+                        background-color: #c85a5f;
+                        border-radius: 50%;
+                        margin-right: 20px;
                     }
                 `}
             </style>

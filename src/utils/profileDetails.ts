@@ -5,9 +5,7 @@ export const pickupDetails = {
         { text: 'Parcel Name', value: '' },
         { text: 'Parcel Delivery method', value: '' },
         { text: 'Parcel Condition', value: '' },
-        { text: 'Your Phone Number', value: '' },
-        { text: 'Your Address', value: '' },
-        { text: 'Your email', value: '' },
+        { text: 'Pickup Address', value: '' },
     ],
 };
 export const deliveryDetails = {
