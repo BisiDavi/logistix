@@ -1,5 +1,4 @@
 import React from 'react';
-import { fieldType } from '../fieldType';
 
 export const loginFieldArray = [
     {
@@ -55,6 +54,3 @@ export const signupFieldArray = [
         field: 'input',
     },
 ];
-
-export const displayFormFields = (formField, formik) =>
-    formField.map((field, index) => fieldType(field, formik, index));

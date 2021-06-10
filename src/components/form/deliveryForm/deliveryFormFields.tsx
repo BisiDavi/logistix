@@ -18,7 +18,7 @@ export const formFieldArray = [
         type: 'text',
         text: 'Delivery Method',
         placeholder: 'Select your Delivery method',
-        options: ['bike', 'van'],
+        options: ['Select your Delivery method', 'bike', 'van'],
         field: 'select',
     },
     {
@@ -28,4 +28,3 @@ export const formFieldArray = [
         field: 'input',
     },
 ];
-
