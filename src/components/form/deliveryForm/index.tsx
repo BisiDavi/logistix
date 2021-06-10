@@ -5,17 +5,17 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { Button } from '@components/.';
 import styles from '@styles/form.module.css';
 import { PrependInput } from '../inputs';
-import { displayFormFields, formFieldArray } from './deliveryFormFields';
+import { displayFormFields } from '../fieldType';
+import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
 
 const DeliveryForm = () => {
-    const [showMore, setShowMore] = useState(false);
-
     const formik = useFormik({
         initialValues: {
-            deliveryAddress: '',
             parcel: '',
             pickupAddress: '',
+            deliveryAddress: '',
+            deliveryMethod: '',
             state: 'lagos',
         },
         validationSchema: DeliverySchema,
@@ -23,7 +23,6 @@ const DeliveryForm = () => {
             alert(JSON.stringify(values, null, 2));
         },
     });
-    const displayMoreFields = () => setShowMore(true);
     const [headerStyle, setHeaderStyle] = useState<React.CSSProperties | any>({
         transition: 'all 200ms ease-in',
         position: 'relative',
@@ -69,18 +68,11 @@ const DeliveryForm = () => {
             <span style={{ ...headerStyle }}>
                 <PrependInput icon='map' field={prependInput} formik={formik} />
             </span>
-            {showMore ? (
-                <>
-                    {displayFormFields(formFieldArray, formik)}
-                    <Button type='submit' text='Order' />
-                </>
-            ) : (
-                <Button
-                    type='button'
-                    onClick={displayMoreFields}
-                    text='Continue'
-                />
-            )}
+
+            <>
+                {displayFormFields(formFieldArray, formik)}
+                <Button type='submit' text='Proceed' />
+            </>
         </Form>
     );
 };

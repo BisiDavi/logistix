@@ -1,4 +1,4 @@
-import { Form, InputGroup } from 'react-bootstrap';
+import { Form, Col, InputGroup } from 'react-bootstrap';
 import { FaMapMarker } from 'react-icons/fa';
 import styles from '@styles/form.module.css';
 
@@ -46,4 +46,29 @@ const displayFormIcons = (icon) => {
         default:
             return null;
     }
+};
+
+export const RadioButton = ({ field }) => {
+    return (
+        <Form.Group className='d-flex radioButton'>
+            {field.labels.map((item, index) => (
+                <div key={index} className='mb-3'>
+                    <Form.Check type='radio' value={item} inline-label={item} />
+                </div>
+            ))}
+        </Form.Group>
+    );
+};
+
+export const SelectInput = ({ field }) => {
+    return (
+        <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>{field.text}</Form.Label>
+            <Form.Control as='select' defaultValue={field.placeholder}>
+                {field.options.map((item, index) => (
+                    <option key={index}>{item}</option>
+                ))}
+            </Form.Control>
+        </Form.Group>
+    );
 };

@@ -35,7 +35,7 @@ button.MuiBottomNavigationAction-root.Mui-selected {
 .slick-dots li {
     margin: 0px 15px;
 }
-.slick-dots li button {
+ul.slick-dots li button {
     width: 20px;
     height: 5px;
     background-color: black;

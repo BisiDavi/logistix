@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input } from '../inputs';
 
 export const formFieldArray = [
     {
@@ -15,6 +14,14 @@ export const formFieldArray = [
         field: 'input',
     },
     {
+        name: 'deliveryMethod',
+        type: 'text',
+        text: 'Delivery Method',
+        placeholder: 'Select your Delivery method',
+        options: ['bike', 'van'],
+        field: 'select',
+    },
+    {
         name: 'state',
         type: 'text',
         placeholder: 'State',
@@ -22,14 +29,3 @@ export const formFieldArray = [
     },
 ];
 
-const fieldType = (inputField, formik, index) => {
-    switch (inputField.field) {
-        case 'input':
-            return <Input key={index} field={inputField} formik={formik} />;
-        default:
-            return null;
-    }
-};
-
-export const displayFormFields = (formField, formik) =>
-    formField.map((field, index) => fieldType(field, formik, index));
