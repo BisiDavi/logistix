@@ -15,6 +15,51 @@ a {
     box-sizing: border-box;
 }
 
+/* bottom nav */
 button.MuiBottomNavigationAction-root.Mui-selected {
     color: #c85a5f;
+}
+
+/* slick slider */
+.slick-dots li button::before {
+    display: none;
+}
+
+.slick-dots li.slick-active button {
+    width: 30px;
+    height: 5px;
+    background-color: #c85a5f;
+    border-radius: 25px;
+}
+
+.slick-dots li {
+    margin: 0px 15px;
+}
+.slick-dots li button {
+    width: 20px;
+    height: 5px;
+    background-color: black;
+    opacity: 0.75;
+    border-radius: 25px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #c85a5f;
+}
+
+.slick-dots {
+    bottom: -35px;
+}
+
+/* typewriter */
+.Typewriter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+span.Typewriter__cursor {
+    margin-top: -10px;
 }

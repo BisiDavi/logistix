@@ -3,7 +3,7 @@ import TextLoop from 'react-text-loop';
 import styles from '@styles/textAnimate.module.css';
 
 const TextAnimate = () => {
-    const textArray = ['Quick ', 'Safe'];
+    const textArray = ['Quick ', 'Safe ', 'Cheap '];
 
     return (
         <div className={styles.animateText}>
@@ -19,8 +19,16 @@ const TextAnimate = () => {
             </TextLoop>
 
             <h3 className='mx-2'>
-                Delivery of Parcels with <b>Logistix</b>
+                Delivery of <span>Parcels</span> with <b>Logistix</b>
             </h3>
+            <style jsx>
+                {`
+                    span {
+                        color: #c85a5f;
+                        font-weight: 700;
+                    }
+                `}
+            </style>
         </div>
     );
 };
