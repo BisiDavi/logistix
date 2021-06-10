@@ -47,28 +47,8 @@ const Profile = () => {
                 <h5>Your Phone Number: </h5>
                 <h5>Your Address: </h5>
                 <h5>Your email: </h5>
-
                 <Dropdown data={pickupDetails} />
-
-                {/*<ul onClick={displayDropdown} className='dropdown'>
-                    <div className='text'>
-                        <h3>Pickup Details</h3>
-                        <span>{ifActive}</span>
-                    </div>
-                    <li>Pickup Address:</li>
-                    <li>Pickup Time:</li>
-                </ul>*/}
                 <Dropdown data={deliveryDetails} />
-
-                {/*<ul onClick={displayDropdown} className='dropdown'>
-                    <div className='text'>
-                        <h3>Delivery Details</h3>
-                        <span>{ifActive}</span>
-                    </div>
-                    <li>Delivery Contact Name: </li>
-                    <li>Delivery Contact Address:</li>
-                    <li>Delivery Contact PhoneNumber:</li>
-                </ul>*/}
             </div>
             <div className='confirm-delivery'>
                 <h5>Click to confirm Parcel Delivery</h5>
