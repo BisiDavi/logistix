@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, PageTitle, TypewriterEffect } from '@components/.';
 import { Dropdown } from '@components/buttons';
+import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
 
 const Profile = () => {
     const typeWords = [
@@ -8,45 +9,25 @@ const Profile = () => {
         '<h5>Thanks for using <span style="color:#c85a5f;;">Logistix</span></h5>',
     ];
 
-    const pickupDetails = {
-        text: 'Pickup Details',
-        dropdown: [
-            { text: 'Parcel ID', value: '' },
-            { text: 'Parcel Name', value: '' },
-            { text: 'Parcel Delivery method', value: '' },
-            { text: 'Parcel Condition', value: '' },
-            { text: 'Your Phone Number', value: '' },
-            { text: 'Your Address', value: '' },
-            { text: 'Your email', value: '' },
-        ],
-    };
-    const deliveryDetails = {
-        text: 'Delivery Details',
-        dropdown: [
-            { text: 'Delivery Contact Name', value: '' },
-            { text: 'Delivery Contact Address', value: '' },
-            { text: 'Delivery Contact PhoneNumber', value: '' },
-        ],
-    };
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />
             <div className='welcome-note d-flex mx-auto'>
                 <TypewriterEffect words={typeWords} />
             </div>
-            <div className='user-profile mt-5'>
-                <div className='profile-icon'></div>
-            </div>
 
             <h3>Your Parcel Details</h3>
             <div className='parcel-details'>
-                <h5>Parcel ID:</h5>
-                <h5>Parcel Name: </h5>
-                <h5>Parcel Delivery method: Bike</h5>
-                <h5>Parcel Condition: Good</h5>
-                <h5>Your Phone Number: </h5>
-                <h5>Your Address: </h5>
-                <h5>Your email: </h5>
+                <div className='user-profile mt-5'>
+                    <div className='profile-icon'></div>
+                    <div className='user-details'>
+                        <h5>Name:</h5>
+                        <h5>Phone number:</h5>
+                        <h5>Location:</h5>
+                        <h5>Email:</h5>
+                        <h5>Sex:</h5>
+                    </div>
+                </div>
                 <Dropdown data={pickupDetails} />
                 <Dropdown data={deliveryDetails} />
             </div>
@@ -75,7 +56,6 @@ const Profile = () => {
                         font-size: 16px;
                         font-family: sans-serif;
                     }
-
                 `}
             </style>
         </div>
