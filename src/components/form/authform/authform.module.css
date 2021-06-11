@@ -3,3 +3,11 @@
     display: flex;
     flex-direction: column;
 }
+
+.form button {
+    width: 120px;
+    margin-top: 30px;
+    justify-content: center;
+    display: flex;
+    margin: 20px auto;
+}

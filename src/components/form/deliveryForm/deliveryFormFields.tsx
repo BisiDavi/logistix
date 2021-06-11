@@ -5,13 +5,13 @@ export const formFieldArray = [
         name: 'parcel',
         type: 'text',
         placeholder: 'What do you want to deliver?',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'pickupAddress',
         type: 'text',
         placeholder: 'Pickup Address',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'deliveryMethod',
@@ -19,12 +19,12 @@ export const formFieldArray = [
         text: 'Delivery Method',
         placeholder: 'Select your Delivery method',
         options: ['Select your Delivery method', 'bike', 'van'],
-        field: 'select',
+        field: 'mui-select',
     },
     {
         name: 'state',
         type: 'text',
         placeholder: 'State',
-        field: 'input',
+        field: 'text-input',
     },
 ];

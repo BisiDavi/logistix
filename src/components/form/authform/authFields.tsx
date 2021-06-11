@@ -5,13 +5,13 @@ export const signupFieldArray = [
         name: 'fullName',
         type: 'email',
         placeholder: 'Your full name',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'email',
         type: 'email',
         placeholder: 'Your email',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'sex',
@@ -24,19 +24,19 @@ export const signupFieldArray = [
         name: 'location',
         type: 'text',
         placeholder: 'Your current location',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'password',
         type: 'password',
         placeholder: 'set your password',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'confirmPassword',
         type: 'password',
         placeholder: 'confirm your password',
-        field: 'input',
+        field: 'text-input',
     },
 ];
 
@@ -45,12 +45,12 @@ export const loginFieldArray = [
         name: 'email',
         type: 'email',
         placeholder: 'Your email?',
-        field: 'input',
+        field: 'text-input',
     },
     {
         name: 'password',
         type: 'password',
         placeholder: 'Your password',
-        field: 'input',
+        field: 'text-input',
     },
 ];
