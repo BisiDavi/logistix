@@ -70,16 +70,59 @@ const DeliveryForm = () => {
     };
 
     return (
-        <Form className={styles.form} onSubmit={submitHandler}>
-            <span style={{ ...headerStyle }}>
-                <PrependInput icon='map' field={prependInput} formik={formik} />
-            </span>
-            <AuthModal show={showModal} onHide={closeModal} />
-            <>
-                {displayFormFields(formFieldArray, formik)}
-                <Button type='submit' text='Proceed' />
-            </>
-        </Form>
+        <div className='delivery-form position-relative'>
+            <div className='overlay'></div>
+            <div className='form-wrapper'>
+                <Form
+                    className={`${styles.form} ${styles.deliveryForm} mt-4`}
+                    onSubmit={submitHandler}
+                >
+                    <span style={{ ...headerStyle }}>
+                        <PrependInput
+                            icon='map'
+                            field={prependInput}
+                            formik={formik}
+                        />
+                    </span>
+                    <AuthModal show={showModal} onHide={closeModal} />
+                    <>
+                        {displayFormFields(formFieldArray, formik)}
+                        <Button type='submit' text='Proceed' />
+                    </>
+                </Form>
+            </div>
+            <style jsx>
+                {`
+                    .delivery-form {
+                        background-image: url('/deliveryTruck.webp');
+                        height: 450px;
+                        width: 100%;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                    .form-wrapper {
+                        position: absolute;
+                        z-index: 100;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        margin: auto;
+                        justify-content: center;
+                    }
+                    .overlay {
+                        background-color: black;
+                        opacity: 0.5;
+                        z-index: 1;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 100%;
+                    }
+                `}
+            </style>
+        </div>
     );
 };
 

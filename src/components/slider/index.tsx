@@ -14,7 +14,12 @@ const ImageSlider = () => {
         slidesToScroll: 1,
         autoplay: true,
     };
-    const imageArray = ['/deliveryBoy.svg', '/bikeman.jpg', '/deliveryBoy.jpg'];
+    const imageArray = [
+        '/deliveryBoy.svg',
+        '/deliveryCar.webp',
+        '/bikeman.jpg',
+        '/deliveryBoy.jpg',
+    ];
     return (
         <>
             <Slider className={styles.Slider} {...settings}>

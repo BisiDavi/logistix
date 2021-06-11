@@ -4,6 +4,7 @@
 }
 .form span {
     height: 100%;
+    border-radius: 0px;
 }
 
 .text {
@@ -48,4 +49,10 @@
 
 .form button:hover {
     color: red;
+}
+
+.deliveryForm {
+    padding: 20px;
+    background-color: white;
+    opacity: 0.75;
 }
