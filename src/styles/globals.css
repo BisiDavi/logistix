@@ -63,3 +63,8 @@ ul.slick-dots li button {
 span.Typewriter__cursor {
     margin-top: -10px;
 }
+
+a.appModal.active {
+    background-color: #c85a5f;
+    color: white;
+}
