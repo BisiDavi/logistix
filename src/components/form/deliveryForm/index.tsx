@@ -26,7 +26,7 @@ const DeliveryForm = () => {
         validationSchema: DeliverySchema,
         onSubmit: (values) => {
             console.log('values', values);
-						openModal();,
+            openModal();
         },
     });
     const [headerStyle, setHeaderStyle] = useState<React.CSSProperties | any>({
