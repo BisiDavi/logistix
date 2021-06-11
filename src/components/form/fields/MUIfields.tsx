@@ -4,6 +4,10 @@ import {
     FormControl,
     InputLabel,
     Select,
+    FormLabel,
+    RadioGroup,
+    Radio,
+    FormControlLabel,
     MenuItem,
 } from '@material-ui/core';
 
@@ -41,6 +45,29 @@ export const MUISelect = ({ field, formik }) => {
                     </MenuItem>
                 ))}
             </Select>
+        </FormControl>
+    );
+};
+
+export const MUIRadio = ({ field, formik }) => {
+    return (
+        <FormControl component='fieldset'>
+            <FormLabel component='legend'>{field.name}</FormLabel>
+            <RadioGroup
+                value={formik.values[field.name]}
+                onChange={formik.handleChange}
+                aria-label={field.name}
+                name={field.name}
+            >
+                {field.labels.map((item, index) => (
+                    <FormControlLabel
+                        key={index}
+                        value={item}
+                        control={<Radio />}
+                        label={item}
+                    />
+                ))}
+            </RadioGroup>
         </FormControl>
     );
 };

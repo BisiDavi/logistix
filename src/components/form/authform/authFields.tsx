@@ -17,7 +17,7 @@ export const signupFieldArray = [
         name: 'sex',
         type: 'radio',
         labels: ['male', 'female'],
-        field: 'radioButton',
+        field: 'mui-radio',
     },
 
     {

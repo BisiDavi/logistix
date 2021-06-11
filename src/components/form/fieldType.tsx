@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, RadioButton, SelectInput } from './fields/inputs';
-import { MUISelect, TextInput } from './fields/MUIfields';
+import { MUIRadio, MUISelect, TextInput } from './fields/MUIfields';
 
 export const fieldType = (inputField, formik, index) => {
     switch (inputField.field) {
@@ -14,6 +14,8 @@ export const fieldType = (inputField, formik, index) => {
             return <SelectInput field={inputField} />;
         case 'mui-select':
             return <MUISelect formik={formik} field={inputField} />;
+        case 'mui-radio':
+            return <MUIRadio field={inputField} formik={formik} />;
         default:
             return null;
     }
