@@ -3,11 +3,11 @@ import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { Button, AuthModal } from '@components/.';
-import styles from '@styles/form.module.css';
-import { PrependInput } from '../inputs';
+import { PrependInput } from '../fields/inputs';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
+import styles from '@styles/form.module.css';
 
 const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);

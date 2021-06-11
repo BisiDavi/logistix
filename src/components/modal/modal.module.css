@@ -1,4 +1,4 @@
-.modalHeader img {
+.AppModal .modalHeader img {
     height: 50px;
     width: 150px;
 }
@@ -8,17 +8,23 @@
     margin: auto;
     justify-content: center;
     position: relative;
+		width:100%;
 }
 
 .modalHeader button {
     position: absolute;
     right: 10px;
-    top: 20px;
+    top: 10px;
     border-radius: 50%;
-    background-color: #c85a5f;
     color: white;
+    background-color: #c85a5f;
     border: none;
-    height: 50px;
-    width: 50px;
-    content: 'X';
+    height: 35px;
+    font-size: 35px;
+    width: 35px;
+    line-height: 0px;
+}
+
+.modalHeader button span:last-child {
+    display: none;
 }

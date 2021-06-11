@@ -22,8 +22,9 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
                 {`
                     h5 {
                         color: #c85a5f;
-                        font-size: 16px;
+                        font-size: 14px;
                         font-family: 'Roboto', sans-serif;
+                        text-align: center;
                     }
                 `}
             </style>

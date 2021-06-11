@@ -1,12 +1,14 @@
 import React, { FC, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import DisplayTabs from './displayTab';
+import styles from './tabs.module.css'
 
 const AppTab: FC<AppTabProps> = ({ tabData, className }) => {
     const [key, setKey] = useState(tabData.defaultTab);
     return (
         <Tabs
             activeKey={key}
+						className={styles.tabs}
             onSelect={(k) => setKey(k)}
             id={tabData.id}
         >
