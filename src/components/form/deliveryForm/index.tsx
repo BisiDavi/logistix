@@ -25,8 +25,7 @@ const DeliveryForm = () => {
         },
         validationSchema: DeliverySchema,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
-            openModal();
+            console.log('values', values);
         },
     });
     const [headerStyle, setHeaderStyle] = useState<React.CSSProperties | any>({
@@ -67,6 +66,7 @@ const DeliveryForm = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         formik.handleSubmit();
+        openModal();
     };
 
     return (

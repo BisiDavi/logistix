@@ -5,6 +5,7 @@ import { displayFormFields } from '../fieldType';
 import { loginFieldArray } from './authFields';
 import { Button } from '@components/.';
 import styles from './authform.module.css';
+import { LoginSchema } from './authSchema';
 
 const LoginForm = () => {
     const formik = useFormik({
@@ -12,13 +13,17 @@ const LoginForm = () => {
             email: '',
             password: '',
         },
-        validationSchema: '',
+        validationSchema: LoginSchema,
         onSubmit: (values) => {
-            alert(JSON.stringify(values, null, 2));
+            console.log('login values', values);
         },
     });
+    const submitHandler = (e) => {
+        e.preventDefault();
+        formik.handleSubmit();
+    };
     return (
-        <Form className={styles.form}>
+        <Form onSubmit={submitHandler} className={styles.form}>
             {displayFormFields(loginFieldArray, formik)}
             <Button type='submit' text='Login' />
         </Form>
