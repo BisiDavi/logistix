@@ -1,0 +1,16 @@
+.fieldset {
+    display: flex;
+    justify-self: center;
+    margin: 15px;
+}
+
+.fieldset legend {
+    width: fit-content;
+    margin-bottom: 0px;
+}
+
+.radioGroup {
+    display: flex;
+    margin: 0px;
+    flex-direction: row;
+}

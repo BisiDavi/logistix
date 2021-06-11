@@ -10,6 +10,7 @@ import {
     FormControlLabel,
     MenuItem,
 } from '@material-ui/core';
+import styles from './MUIfields.module.css';
 
 export const TextInput = ({ field, formik }) => {
     return (
@@ -51,13 +52,14 @@ export const MUISelect = ({ field, formik }) => {
 
 export const MUIRadio = ({ field, formik }) => {
     return (
-        <FormControl component='fieldset'>
+        <FormControl className={styles.fieldset} component='fieldset'>
             <FormLabel component='legend'>{field.name}</FormLabel>
             <RadioGroup
                 value={formik.values[field.name]}
                 onChange={formik.handleChange}
                 aria-label={field.name}
                 name={field.name}
+                className={styles.radioGroup}
             >
                 {field.labels.map((item, index) => (
                     <FormControlLabel

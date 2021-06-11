@@ -3,12 +3,12 @@
     width: 150px;
 }
 
-.modalHeader {
+.AppModal .modalHeader {
     display: flex;
     margin: auto;
     justify-content: center;
     position: relative;
-		width:100%;
+    width: 100%;
 }
 
 .modalHeader button {
