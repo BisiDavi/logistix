@@ -33,6 +33,7 @@ const Dropdown: FC<DropdownProps> = ({ data }) => {
                         font-family: 'Roboto', sans-serif;
                         padding: 10px;
                         padding-left: 0px;
+                        margin-bottom: 0px;
                     }
                     ul.dropdown li {
                         display: ${dropdownStyle};
@@ -49,7 +50,7 @@ const Dropdown: FC<DropdownProps> = ({ data }) => {
                         padding-left: 10px;
                         border-bottom-right-radius: 25px;
                         border-top-right-radius: 25px;
-                        margin-bottom: 10px;
+                        margin-bottom: 0px;
                     }
                     .text span {
                         border: 2px solid #c85a5f;

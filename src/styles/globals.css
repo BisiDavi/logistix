@@ -32,7 +32,7 @@ button.MuiBottomNavigationAction-root.Mui-selected {
     border-radius: 25px;
 }
 
-.slick-dots li {
+ul.slick-dots li {
     margin: 0px 15px;
 }
 ul.slick-dots li button {

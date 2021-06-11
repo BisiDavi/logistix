@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import { Button } from '@components/.';
+import { Button, AuthModal } from '@components/.';
 import styles from '@styles/form.module.css';
 import { PrependInput } from '../inputs';
 import { displayFormFields } from '../fieldType';
@@ -10,6 +10,11 @@ import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
 
 const DeliveryForm = () => {
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
+
     const formik = useFormik({
         initialValues: {
             parcel: '',
@@ -21,6 +26,7 @@ const DeliveryForm = () => {
         validationSchema: DeliverySchema,
         onSubmit: (values) => {
             alert(JSON.stringify(values, null, 2));
+            openModal();
         },
     });
     const [headerStyle, setHeaderStyle] = useState<React.CSSProperties | any>({
@@ -68,7 +74,7 @@ const DeliveryForm = () => {
             <span style={{ ...headerStyle }}>
                 <PrependInput icon='map' field={prependInput} formik={formik} />
             </span>
-
+            <AuthModal show={showModal} onHide={closeModal} />
             <>
                 {displayFormFields(formFieldArray, formik)}
                 <Button type='submit' text='Proceed' />

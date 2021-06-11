@@ -2,8 +2,9 @@ import React from 'react';
 import { useFormik } from 'formik';
 import { Form } from 'react-bootstrap';
 import { displayFormFields } from '../fieldType';
-import { loginFieldArray, signupFieldArray } from './authFields';
+import { loginFieldArray } from './authFields';
 import { Button } from '@components/.';
+import styles from './authform.module.css';
 
 const LoginForm = () => {
     const formik = useFormik({
@@ -17,7 +18,7 @@ const LoginForm = () => {
         },
     });
     return (
-        <Form>
+        <Form className={styles.form}>
             {displayFormFields(loginFieldArray, formik)}
             <Button type='submit' text='Login' />
         </Form>

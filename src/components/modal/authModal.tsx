@@ -1,20 +1,34 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import AppModal from '.';
 import { LoginForm } from '@components/form/.';
+import { Logo } from '@components/icons';
+import AppTab from '@components/tabs';
 
-const LoginModal = () => {
-    const [showModal, setShowModal] = useState(false);
-
-    const toggleModal = setShowModal(!showModal);
+const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
+    const tabData = {
+        id: 'authModalTab',
+        defaultTab: 'signup',
+        content: [
+            { eventKey: 'login', title: 'Login' },
+            { eventKey: 'signup', title: 'Signup' },
+        ],
+    };
     return (
         <AppModal
-            show={showModal}
-            onHide={toggleModal}
+            show={show}
+            onHide={onHide}
             title='Hello, Please login or create an account by signing up'
         >
+            <div className='logo'>
+                <Logo />
+            </div>
+            <AppTab tabData={tabData} />
             <LoginForm />
         </AppModal>
     );
 };
-
-export default LoginModal;
+interface AuthModalProps {
+    show: boolean;
+    onHide: () => void;
+}
+export default AuthModal;
