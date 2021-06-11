@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const loginFieldArray = [
+export const signupFieldArray = [
     {
         name: 'fullName',
         type: 'email',
@@ -40,7 +40,7 @@ export const loginFieldArray = [
     },
 ];
 
-export const signupFieldArray = [
+export const loginFieldArray = [
     {
         name: 'email',
         type: 'email',
