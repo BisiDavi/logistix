@@ -16,6 +16,7 @@ const SignupForm = () => {
             phoneNumber: '',
             location: '',
             password: '',
+            confirmPassword: '',
         },
         validationSchema: SignupSchema,
         onSubmit: (values) => {

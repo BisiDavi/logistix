@@ -5,5 +5,7 @@ export const DeliverySchema = Yup.object().shape({
     parcel: Yup.string().required('hello, what do you want to deliver?'),
     pickupAddress: Yup.string().required('Enter your pickup address'),
     deliveryMethod: Yup.string().required('Select your delivery method'),
-    state: Yup.string().matches(/lagos/i, 'Invalid phone number').required(),
+    state: Yup.string()
+        .matches(/lagos/i, 'We only deliver to lagos')
+        .required(),
 });
