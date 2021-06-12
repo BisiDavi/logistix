@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PageTitle, TextAnimate, ImageSlider } from '@components/.';
+import Section from '@components/text/section';
 
 const Home = () => {
     const [data, setData] = useState(null);
@@ -25,10 +26,7 @@ const Home = () => {
                 <TextAnimate />
                 <ImageSlider />
             </section>
-            <section>
-                <div className='image-container'>section 1</div>
-                <div className='image-container'>section 2</div>
-            </section>
+            <Section data={data} />
             <style jsx>
                 {`
                     section {
