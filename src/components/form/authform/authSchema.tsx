@@ -3,12 +3,7 @@ import * as Yup from 'yup';
 export const SignupSchema = Yup.object().shape({
     fullName: Yup.string().required('your full name'),
     email: Yup.string().email().required('your email'),
-    phoneNumber: Yup.string()
-        .required('your phone number is required')
-        .matches(
-            /^([0]{1}|\+?[234]{3})([10-11]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
-            'Invalid phone number',
-        ),
+    phoneNumber: Yup.string().required('your phone number is required'),
     sex: Yup.string().required('your sex'),
     location: Yup.string().required('select your current location '),
     password: Yup.string()
