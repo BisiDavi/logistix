@@ -6,7 +6,7 @@ export const SignupSchema = Yup.object().shape({
     phoneNumber: Yup.string()
         .required('your phone number is required')
         .matches(
-            /^([0]{1}|\+?[234]{3})([7-9]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
+            /^([0]{1}|\+?[234]{3})([10-11]{1})([0|1]{1})([\d]{1})([\d]{7})$/g,
             'Invalid phone number',
         ),
     sex: Yup.string().required('your sex'),

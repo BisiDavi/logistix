@@ -26,21 +26,25 @@ button.MuiBottomNavigationAction-root.Mui-selected {
 }
 
 .slick-dots li.slick-active button {
-    width: 30px;
+    width: 25px;
     height: 5px;
     background-color: #c85a5f;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 ul.slick-dots li {
     margin: 0px 15px;
 }
+
+ul.slick-dots li{
+	height:10px;
+}
 ul.slick-dots li button {
-    width: 20px;
+    width: 10px;
     height: 5px;
     background-color: black;
     opacity: 0.75;
-    border-radius: 25px;
+    border-radius: 15px;
 }
 
 .slick-prev:before,

@@ -9,7 +9,9 @@ import {
     Radio,
     FormControlLabel,
     MenuItem,
+    makeStyles,
 } from '@material-ui/core';
+
 import styles from './MUIfields.module.css';
 
 export const TextInput = ({ field, formik }) => {
@@ -53,17 +55,38 @@ export const MUISelect = ({ field, formik }) => {
         </FormControl>
     );
 };
+const useStyles = makeStyles({
+    formControl: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+    },
+    legend: {
+        marginBottom: 0,
+        width: 'fit-content',
+        marginRight: '50px',
+    },
+    radioGroup: {
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+});
 
 export const MUIRadio = ({ field, formik }) => {
+    const classes = useStyles();
     return (
-        <FormControl className={styles.fieldset} component='fieldset'>
-            <FormLabel component='legend'>{field.name}</FormLabel>
+        <FormControl className={classes.formControl} component='fieldset'>
+            <FormLabel className={classes.legend} component='legend'>
+                {field.name}
+            </FormLabel>
             <RadioGroup
                 value={formik.values[field.name]}
                 onChange={formik.handleChange}
                 aria-label={field.name}
                 name={field.name}
-                className={styles.radioGroup}
+                className={classes.radioGroup}
             >
                 {field.labels.map((item, index) => (
                     <FormControlLabel
