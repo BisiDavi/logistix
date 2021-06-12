@@ -10,8 +10,8 @@ import { LoginSchema } from './authSchema';
 const LoginForm = () => {
     const formik = useFormik({
         initialValues: {
-            email: '',
-            password: '',
+            userEmail: '',
+            userPassword: '',
         },
         validationSchema: LoginSchema,
         onSubmit: (values) => {

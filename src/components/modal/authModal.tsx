@@ -16,7 +16,7 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
         <>
             <AppModal show={show} onHide={onHide} className={styles.AppModal}>
                 <h5>Hello, Please login or create an account by signing up</h5>
-                <AppTab className='appModal' tabData={tabData} />
+                <AppTab tabData={tabData} />
             </AppModal>
             <style jsx>
                 {`

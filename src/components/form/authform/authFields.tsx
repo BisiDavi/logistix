@@ -35,7 +35,7 @@ export const signupFieldArray = [
         name: 'password',
         type: 'password',
         placeholder: 'set your password',
-        field: 'text-input',
+        field: 'password',
     },
     {
         name: 'confirmPassword',
@@ -47,15 +47,15 @@ export const signupFieldArray = [
 
 export const loginFieldArray = [
     {
-        name: 'email',
+        name: 'userEmail',
         type: 'email',
         placeholder: 'Your email?',
         field: 'text-input',
     },
     {
-        name: 'password',
+        name: 'userPassword',
         type: 'password',
         placeholder: 'Your password',
-        field: 'text-input',
+        field: 'password',
     },
 ];

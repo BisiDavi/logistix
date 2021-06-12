@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     TextField,
     FormControl,
@@ -10,9 +10,13 @@ import {
     FormControlLabel,
     MenuItem,
     makeStyles,
+    Input,
+    IconButton,
+    InputAdornment,
+    FormHelperText,
 } from '@material-ui/core';
-
-import styles from './MUIfields.module.css';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 export const TextInput = ({ field, formik }) => {
     return (
@@ -52,6 +56,9 @@ export const MUISelect = ({ field, formik }) => {
                     </MenuItem>
                 ))}
             </Select>
+            <FormHelperText>
+                {formik.touched[field.name] && formik.errors[field.name]}
+            </FormHelperText>
         </FormControl>
     );
 };
@@ -97,6 +104,49 @@ export const MUIRadio = ({ field, formik }) => {
                     />
                 ))}
             </RadioGroup>
+        </FormControl>
+    );
+};
+
+export const PasswordField = ({ field, formik }) => {
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+
+    const handleMouseDownPassword = (
+        event: React.MouseEvent<HTMLButtonElement>,
+    ) => event.preventDefault();
+
+    const inputType = showPassword ? 'text' : 'password';
+
+    return (
+        <FormControl>
+            <InputLabel htmlFor={field.name}>{field.placeholder}</InputLabel>
+            <Input
+                type={inputType}
+                fullWidth
+                name={field.name}
+                value={formik.values[field.name]}
+                onChange={formik.handleChange}
+                error={
+                    formik.touched[field.name] &&
+                    Boolean(formik.errors[field.name])
+                }
+                endAdornment={
+                    <InputAdornment position='end'>
+                        <IconButton
+                            aria-label='toggle password visibility'
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                        >
+                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                    </InputAdornment>
+                }
+            />
+            <FormHelperText>
+                {formik.touched[field.name] && formik.errors[field.name]}
+            </FormHelperText>
         </FormControl>
     );
 };

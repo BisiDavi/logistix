@@ -1,6 +1,6 @@
 [
     {
-        "img": "/",
+        "img": "/mobile-delivery.jpg",
         "title": "Set Pickup & Delivery location",
         "description": "Select the pickup address of parcel and where you want us to deliver"
     },
@@ -10,7 +10,7 @@
         "description": "Get Quote for your delivery"
     },
     {
-        "img": "/",
+        "img": "/logistix-globe.jpg",
         "title": "Receive your Parcel",
         "description": "Get your parcels delivered to you"
     }

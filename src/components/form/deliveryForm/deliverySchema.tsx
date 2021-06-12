@@ -7,5 +7,5 @@ export const DeliverySchema = Yup.object().shape({
     deliveryMethod: Yup.string().required('Select your delivery method'),
     state: Yup.string()
         .matches(/lagos/i, 'We only deliver to lagos')
-        .required(),
+        .required('state is required'),
 });

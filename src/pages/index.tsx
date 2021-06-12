@@ -1,13 +1,29 @@
-import React from 'react';
-import { PageTitle, TextAnimate,ImageSlider } from '@components/.';
+import React, { useState, useEffect } from 'react';
+import { PageTitle, TextAnimate, ImageSlider } from '@components/.';
 
 const Home = () => {
+    const [data, setData] = useState(null);
+    const fetchData = async () => {
+        await fetch('/api/core-values', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'GET',
+        })
+            .then((res) => res.json())
+            .then((d) => setData(d));
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
         <>
             <PageTitle title='Get your products delivered just in time.' />
             <section>
                 <TextAnimate />
-								<ImageSlider />
+                <ImageSlider />
             </section>
             <section>
                 <div className='image-container'>section 1</div>

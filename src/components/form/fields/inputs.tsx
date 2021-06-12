@@ -62,7 +62,7 @@ export const RadioButton = ({ field }) => {
 
 export const SelectInput = ({ field }) => {
     return (
-        <Form.Group as={Col} controlId='formGridState'>
+        <Form.Group as={Col} controlId={field.name}>
             <Form.Control as='select' defaultValue={field.placeholder}>
                 {field.options.map((item, index) => (
                     <option key={index}>{item}</option>
