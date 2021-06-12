@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
+import { Provider } from 'react-redux';
 import NProgress from 'nprogress';
 import { Loading } from '@components/.';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Pagelayout } from '@layout/.';
+import store from '../store';
 import '../styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -80,9 +82,11 @@ function MyApp({ Component, pageProps }) {
             </Head>
             {loading && <Loading />}
             <CssBaseline />
-            <Pagelayout>
-                <Component {...pageProps} />
-            </Pagelayout>
+            <Provider store={store}>
+                <Pagelayout>
+                    <Component {...pageProps} />
+                </Pagelayout>
+            </Provider>
         </div>
     );
 }

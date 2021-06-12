@@ -1,0 +1,17 @@
+[
+    {
+        "img": "/",
+        "title": "Set Pickup & Delivery location",
+        "description": "Select the pickup address of parcel and where you want us to deliver"
+    },
+    {
+        "img": "/",
+        "title": "Get Quote",
+        "description": "Get Quote for your delivery"
+    },
+    {
+        "img": "/",
+        "title": "Receive your Parcel",
+        "description": "Get your parcels delivered to you"
+    }
+]
