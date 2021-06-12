@@ -77,19 +77,19 @@ const DeliveryForm = () => {
                     className={`${styles.form} ${styles.deliveryForm} mt-4`}
                     onSubmit={submitHandler}
                 >
-                    <span style={{ ...headerStyle }}>
+                    <span className={styles.prependInput} style={{ ...headerStyle }}>
                         <PrependInput
                             icon='map'
                             field={prependInput}
                             formik={formik}
                         />
                     </span>
-                    <AuthModal show={showModal} onHide={closeModal} />
                     <>
                         {displayFormFields(formFieldArray, formik)}
                         <Button type='submit' text='Proceed' />
                     </>
                 </Form>
+                <AuthModal show={showModal} onHide={closeModal} />
             </div>
             <style jsx>
                 {`
