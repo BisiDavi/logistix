@@ -31,9 +31,16 @@
             "@utils/*": ["./src/utils/*"],
             "@app/*": ["./src/app/*"],
             "@assets/*": ["./src/assets/*"],
-            "@styles/*": ["./src/styles/*"]
+            "@styles/*": ["./src/styles/*"],
+            "@store/*": ["./src/store"]
         }
     },
     "exclude": ["node_modules"],
-    "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts", "next.config.js", "src/components/typewriter/index.jsx"]
+    "include": [
+        "**/*.ts",
+        "**/*.tsx",
+        "next-env.d.ts",
+        "next.config.js",
+        "src/components/typewriter/index.jsx"
+    ]
 }

@@ -2,7 +2,7 @@
     background-color: white;
     font-family: 'Roboto', sans-serif;
     color: white;
-    position: fixed;
+    position: static;
     bottom: 0;
     height: 60px;
     display: flex;

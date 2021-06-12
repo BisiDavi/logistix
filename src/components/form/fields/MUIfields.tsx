@@ -39,6 +39,10 @@ export const MUISelect = ({ field, formik }) => {
                 value={formik.values[field.name]}
                 id={field.name}
                 name={field.name}
+                error={
+                    formik.touched[field.name] &&
+                    Boolean(formik.errors[field.name])
+                }
             >
                 {field.options.map((item, index) => (
                     <MenuItem key={index} value={item}>

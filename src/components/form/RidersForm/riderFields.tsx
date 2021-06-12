@@ -1,16 +1,8 @@
-import React from 'react';
-
-export const signupFieldArray = [
+export const RiderSignup = [
     {
         name: 'fullName',
         type: 'text',
         placeholder: 'Your full name',
-        field: 'text-input',
-    },
-    {
-        name: 'email',
-        type: 'email',
-        placeholder: 'Your email',
         field: 'text-input',
     },
     {
@@ -26,12 +18,6 @@ export const signupFieldArray = [
         field: 'mui-radio',
     },
     {
-        name: 'location',
-        type: 'text',
-        placeholder: 'Your current location',
-        field: 'text-input',
-    },
-    {
         name: 'password',
         type: 'password',
         placeholder: 'set your password',
@@ -45,17 +31,17 @@ export const signupFieldArray = [
     },
 ];
 
-export const loginFieldArray = [
-    {
-        name: 'email',
-        type: 'email',
-        placeholder: 'Your email?',
-        field: 'text-input',
-    },
-    {
-        name: 'password',
-        type: 'password',
-        placeholder: 'Your password',
-        field: 'text-input',
-    },
+export const RiderLogin = [
+	{
+			name: 'email',
+			type: 'email',
+			placeholder: 'Your email?',
+			field: 'text-input',
+	},
+	{
+			name: 'password',
+			type: 'password',
+			placeholder: 'Your password',
+			field: 'text-input',
+	},
 ];

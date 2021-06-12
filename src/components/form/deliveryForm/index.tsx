@@ -21,7 +21,7 @@ const DeliveryForm = () => {
             pickupAddress: '',
             deliveryAddress: '',
             deliveryMethod: '',
-            state: 'lagos',
+            state: '',
         },
         validationSchema: DeliverySchema,
         onSubmit: (values) => {

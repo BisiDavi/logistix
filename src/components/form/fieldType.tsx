@@ -9,13 +9,13 @@ export const fieldType = (inputField, formik, index) => {
         case 'text-input':
             return <TextInput key={index} field={inputField} formik={formik} />;
         case 'radioButton':
-            return <RadioButton field={inputField} />;
+            return <RadioButton key={index} field={inputField} />;
         case 'select':
-            return <SelectInput field={inputField} />;
+            return <SelectInput key={index} field={inputField} />;
         case 'mui-select':
-            return <MUISelect formik={formik} field={inputField} />;
+            return <MUISelect key={index} formik={formik} field={inputField} />;
         case 'mui-radio':
-            return <MUIRadio field={inputField} formik={formik} />;
+            return <MUIRadio key={index} field={inputField} formik={formik} />;
         default:
             return null;
     }
