@@ -25,6 +25,10 @@ const Section = ({ data }) => {
                         display: flex;
                         flex-direction: column;
                     }
+										img{
+											height:100%;
+											width:100%;
+										}
                     .section-content {
                         display: flex;
                         flex-direction: column;
