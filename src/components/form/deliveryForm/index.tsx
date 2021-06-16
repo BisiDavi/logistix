@@ -74,10 +74,13 @@ const DeliveryForm = () => {
             <div className='overlay'></div>
             <div className='form-wrapper'>
                 <Form
-                    className={`${styles.form} ${styles.deliveryForm} mt-4`}
+                    className={`${styles.form} ${styles.deliveryForm} mx-auto`}
                     onSubmit={submitHandler}
                 >
-                    <span className={styles.prependInput} style={{ ...headerStyle }}>
+                    <span
+                        className={styles.prependInput}
+                        style={{ ...headerStyle }}
+                    >
                         <PrependInput
                             icon='map'
                             field={prependInput}
@@ -95,7 +98,7 @@ const DeliveryForm = () => {
                 {`
                     .delivery-form {
                         background-image: url('/deliveryCar.jpg');
-                        height: 450px;
+                        height: 85vh;
                         width: 100%;
                         background-position: center;
                         background-size: cover;

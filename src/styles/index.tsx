@@ -59,6 +59,7 @@ export const TextCard = styled.section`
     }
     .text h3 {
         font-size: 20px;
+        font-weight: bold;
     }
     .text p {
         font-size: 14px;
