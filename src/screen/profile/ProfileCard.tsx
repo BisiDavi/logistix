@@ -18,7 +18,9 @@ const ProfileCard: FC<ProfileCardProps> = ({ content, shouldTrack }) => {
                     <div className='body'>
                         <div className='content'>
                             <div className='text'>
-                                <div className='indicator'></div>
+                                <div className='indicator'>
+                                    <img src='/indicator.png' alt='indicator' />
+                                </div>
                                 <div className='address'>
                                     <p>{content.pickupAddress}</p>
                                     <p>{content.deliveryAddress}</p>

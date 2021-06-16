@@ -13,6 +13,17 @@ export const Profilecard = styled.div`
         margin-bottom: 0px;
     }
 
+    .text {
+        display: flex;
+        align-items: center;
+    }
+
+    .indicator img {
+        height: 45px;
+        margin: 0px 10px;
+        margin-top: -10px;
+    }
+
     p {
         margin-bottom: 10px;
     }
