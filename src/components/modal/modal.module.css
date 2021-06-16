@@ -1,5 +1,5 @@
 div.AppModal {
-    margin-top: 20%;
+    margin-top: 40%;
 }
 .AppModal .modalHeader img {
     height: 50px;
@@ -13,13 +13,12 @@ div.AppModal {
     position: relative;
     width: 100%;
     border-bottom: none;
-    margin-top: -35px;
 }
 
 .modalHeader button {
     position: absolute;
     right: 10px;
-    top: 40px;
+    top: 10px;
     border-radius: 50%;
     color: white;
     background-color: #c85a5f;
@@ -31,6 +30,7 @@ div.AppModal {
     line-height: 0px;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 
 .modalHeader button span:last-child {

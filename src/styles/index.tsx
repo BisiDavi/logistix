@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 export const Authmodal = styled.div`
+    margin-top: -35px;
+
+    nav {
+        justify-content: center;
+    }
+
     .tab-content {
         margin-bottom: 60px;
     }
@@ -11,7 +17,7 @@ export const Authmodal = styled.div`
         align-items: center;
     }
     .socials {
-        background-color: orange;
+        background-color: #c85a5f;
         margin-top: 0px;
         padding: 10px 0px;
         width: 100%;
