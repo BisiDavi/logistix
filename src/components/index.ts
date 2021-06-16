@@ -9,3 +9,7 @@ export { default as ImageSlider } from './slider';
 export { default as TypewriterEffect } from './typewriter';
 export { default as AuthModal } from './modal/authModal';
 export { default as AppTab } from './tabs';
+export { default as ActiveShipment } from '../screen/profile/activeShipments';
+export { default as History } from '../screen/profile/history';
+export { default as UserTab } from '../screen/profile/userTab';
+

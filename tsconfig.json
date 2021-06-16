@@ -19,7 +19,6 @@
             "@components/*": ["./src/components/*"],
             "@api/*": ["./src/api/*"],
             "@models/*": ["./src/models/*"],
-            "@screens/*": ["./src/screens/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@services/*": ["./src/services/*"],
             "@constants": ["./src/constants.ts"],
@@ -34,6 +33,7 @@
             "@styles/*": ["./src/styles/*"],
             "@store/*": ["./src/store/*"],
             "@json/*": ["./src/json/*"],
+            "@screen/*": ["./src/screen/*"]
         }
     },
     "exclude": ["node_modules"],

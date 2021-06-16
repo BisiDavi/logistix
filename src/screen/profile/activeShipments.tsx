@@ -2,7 +2,7 @@ import React from 'react';
 import { ActiveShipmentTab } from './profileData';
 import { Button } from '@components/.';
 
-const ActiveShipments = () => {
+const ActiveShipment = () => {
     return (
         <div className='activeShipment'>
             {ActiveShipmentTab.map((data, index) => (
@@ -28,4 +28,4 @@ const ActiveShipments = () => {
     );
 };
 
-export default ActiveShipments;
+export default ActiveShipment;

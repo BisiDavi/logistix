@@ -1,7 +1,8 @@
 export const ProfileTab = {
-    defaultTab: 'activeShipment',
+    defaultTab: 'userTab',
     id: 'profile',
     content: [
+        { title: 'Profile', eventKey: 'userTab' },
         { title: 'Active Shipment', eventKey: 'activeShipment' },
         { title: 'History', eventKey: 'history' },
     ],
