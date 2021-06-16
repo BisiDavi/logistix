@@ -114,3 +114,21 @@ export const HistoryTab = [
         time: '12:45pm 16/06/2021',
     },
 ];
+
+export const userData = {
+    name: 'Smith Daniels',
+    phoneNumber: '08074521632',
+    location: 'Inter Distribution Warehouse, Oko-Oba',
+    email: 'smithdaniels@gmail.com',
+    sex: 'male',
+};
+
+export const nameInitials = (name) => {
+    const nameArray = name.split(' ');
+    const firstName = nameArray[0];
+    const lastName = nameArray[1];
+    const firstLetterFirstName = firstName.split('')[0];
+    const firstLetterLastName = lastName.split('')[0];
+    const initials = `${firstLetterFirstName} ${firstLetterLastName}`;
+    return initials;
+};

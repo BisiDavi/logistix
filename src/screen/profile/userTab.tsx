@@ -2,20 +2,22 @@ import React from 'react';
 import { Button, PageTitle } from '@components/.';
 import { Dropdown } from '@components/buttons';
 import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
+import { userData, nameInitials } from './profileData';
 
 const UserTab = () => {
+    const { name, phoneNumber, location, email, sex } = userData;
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />
             <div className='parcel-details'>
                 <div className='user-profile mt-2'>
-                    <div className='profile-icon'></div>
+                    <div className='profile-icon'>{nameInitials(name)}</div>
                     <div className='user-details'>
-                        <h5>Name:</h5>
-                        <h5>Phone number:</h5>
-                        <h5>Location:</h5>
-                        <h5>Email:</h5>
-                        <h5>Sex:</h5>
+                        <h5>Name:{name}</h5>
+                        <h5>Phone number: {phoneNumber}</h5>
+                        <h5>Location: {location}</h5>
+                        <h5>Email: {email}</h5>
+                        <h5>Sex: {sex}</h5>
                     </div>
                 </div>
                 <Dropdown data={pickupDetails} />
@@ -51,6 +53,7 @@ const UserTab = () => {
                     }
                     .user-profile {
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
                         justify-content: flex-start;
                     }
@@ -59,7 +62,14 @@ const UserTab = () => {
                         width: 100px;
                         background-color: #c85a5f;
                         border-radius: 50%;
-                        margin-right: 20px;
+                        margin: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: bold;
+                        font-size: 40px;
+                        color: white;
+                        margin-bottom: 20px;
                     }
                 `}
             </style>
