@@ -6,7 +6,7 @@ const History = () => {
     return (
         <div className='history'>
             {HistoryTab.map((data, index) => (
-                <ProfileCard content={data} key={index} shouldTrack />
+                <ProfileCard content={data} key={index} />
             ))}
         </div>
     );

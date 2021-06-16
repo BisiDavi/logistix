@@ -1,10 +1,9 @@
 import React from 'react';
-import { Button, PageTitle, TypewriterEffect } from '@components/.';
+import { Button, PageTitle } from '@components/.';
 import { Dropdown } from '@components/buttons';
 import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
 
 const UserTab = () => {
-
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />

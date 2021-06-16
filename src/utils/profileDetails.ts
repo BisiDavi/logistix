@@ -1,5 +1,5 @@
 export const pickupDetails = {
-    text: 'Pickup Details',
+    text: 'Current Pickup Details',
     dropdown: [
         { text: 'Parcel ID', value: '' },
         { text: 'Parcel Name', value: '' },
@@ -9,7 +9,7 @@ export const pickupDetails = {
     ],
 };
 export const deliveryDetails = {
-    text: 'Delivery Details',
+    text: 'Current Delivery Details',
     dropdown: [
         { text: 'Delivery Contact Name', value: '' },
         { text: 'Delivery Contact Address', value: '' },
