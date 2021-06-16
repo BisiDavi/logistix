@@ -72,3 +72,8 @@ nav.tabs_tabs__2FehT.nav-tabs a.active {
     background-color: #c85a5f;
     color: white;
 }
+
+/* profile tab */
+.profile nav {
+    justify-content: center;
+}

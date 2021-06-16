@@ -4,17 +4,10 @@ import { Dropdown } from '@components/buttons';
 import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
 
 const UserTab = () => {
-    const typeWords = [
-        '<h5>Welcome <span style="color:#c85a5f;;">Smith</span> </h5>',
-        '<h5>Thanks for using <span style="color:#c85a5f;;">Logistix</span></h5>',
-    ];
 
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />
-            <div className='welcome-note d-flex mx-auto'>
-                <TypewriterEffect words={typeWords} />
-            </div>
             <div className='parcel-details'>
                 <div className='user-profile mt-2'>
                     <div className='profile-icon'></div>
