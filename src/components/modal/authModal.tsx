@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import AppModal from '.';
 import AppTab from '@components/tabs';
 import styles from './modal.module.css';
+import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import { Authmodal } from '@styles/.';
 
 const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
     const tabData = {
@@ -13,22 +15,23 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
         ],
     };
     return (
-        <>
-            <AppModal show={show} onHide={onHide} className={styles.AppModal}>
-                <h5>Hello, Please login or create an account by signing up</h5>
+        <AppModal show={show} onHide={onHide} className={styles.AppModal}>
+            <Authmodal className='authModal'>
+                {/*<h5>Hello, Please login or create an account by signing up</h5>*/}
                 <AppTab tabData={tabData} />
-            </AppModal>
-            <style jsx>
-                {`
-                    h5 {
-                        color: #c85a5f;
-                        font-size: 14px;
-                        font-family: 'Roboto', sans-serif;
-                        text-align: center;
-                    }
-                `}
-            </style>
-        </>
+                <div className='socials'>
+                    <h4>Access via Facebook or Google</h4>
+                    <div className='socialLogin'>
+                        <span className='mx-2'>
+                            <FaFacebook size='25px' />
+                        </span>
+                        <span className='mx-2'>
+                            <FaGoogle size='25px' />
+                        </span>
+                    </div>
+                </div>
+            </Authmodal>
+        </AppModal>
     );
 };
 interface AuthModalProps {

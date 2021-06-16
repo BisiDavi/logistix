@@ -1,5 +1,64 @@
 import styled from 'styled-components';
 
+export const Authmodal = styled.div`
+    .tab-content {
+        margin-bottom: 60px;
+    }
+    .socialLogin {
+        margin: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .socials {
+        background-color: orange;
+        margin-top: 0px;
+        padding: 10px 0px;
+        width: 100%;
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    h4 {
+        font-size: 15px;
+        text-align: center;
+    }
+    h5 {
+        color: #c85a5f;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+    }
+`;
+
+export const TextCard = styled.section`
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 1px 10px 20px 10px #fff2d9;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .text {
+        background-color: #c85a5f;
+        text-align: center;
+        color: white;
+        padding: 0px 10px;
+    }
+    .text h3 {
+        font-size: 20px;
+    }
+    .text p {
+        font-size: 14px;
+    }
+`;
+
 export const Profilecard = styled.div`
     display: flex;
     flex-direction: column;

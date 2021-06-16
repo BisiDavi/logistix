@@ -94,7 +94,7 @@ const DeliveryForm = () => {
             <style jsx>
                 {`
                     .delivery-form {
-                        background-image: url('/deliveryTruck.webp');
+                        background-image: url('/deliveryCar.jpg');
                         height: 450px;
                         width: 100%;
                         background-position: center;
