@@ -25,14 +25,21 @@ const Section = ({ data }) => {
                         display: flex;
                         flex-direction: column;
                     }
-										img{
-											height:100%;
-											width:100%;
-										}
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
                     .section-content {
                         display: flex;
                         flex-direction: column;
                         font-family: 'Roboto', sans-serif;
+                        margin: 10px;
+                        padding: 10px;
+                        box-shadow: 1px 10px 20px 10px #fff2d9;
+                    }
+                    .section-content h3,
+                    .section-content p {
+                        text-align: center;
                     }
                 `}
             </style>
