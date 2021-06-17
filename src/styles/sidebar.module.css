@@ -2,7 +2,7 @@
     background-color: white;
     transition: opacity 0.4s ease-in-out 0s;
     position: fixed;
-    z-index: 100;
+    z-index: 120;
     top: 0;
     height: 100vh;
 }

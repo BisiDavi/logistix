@@ -113,7 +113,7 @@ const DeliveryForm = () => {
                     }
                     .form-wrapper {
                         position: absolute;
-                        z-index: 100;
+                        z-index: 90;
                         left: 0;
                         height: 100%;
                         width: 100%;
