@@ -22,6 +22,13 @@ const Section = ({ data }) => {
                               <SectionLoader />
                           </div>
                       ))}
+            <style jsx>
+                {`
+                    .section {
+                        background-color: white;
+                    }
+                `}
+            </style>
         </div>
     );
 };

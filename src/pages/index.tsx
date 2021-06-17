@@ -30,10 +30,9 @@ const Home = () => {
             <style jsx>
                 {`
                     section {
-                        background-color: #fff2d9;
+                        background-color: #c85a5f14;
                         height: 100%;
                         width: 100%;
-                        margin-top: -20px;
                         padding: 40px 0;
                     }
                     .image-container {

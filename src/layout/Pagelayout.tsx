@@ -13,6 +13,14 @@ const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
             {toggle && <Sidebar onClose={() => toggled(false)} />}
             <main>{children}</main>
             <Footer />
+            <style jsx>
+                {`
+                    header,
+                    main {
+                        background-color: #c85a5f14;
+                    }
+                `}
+            </style>
         </>
     );
 };
