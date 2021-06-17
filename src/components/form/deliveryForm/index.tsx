@@ -14,8 +14,6 @@ const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);
     const [bgImg, setBgImg] = useState('');
 
-    //const bgImg = generateRandomImages();
-
     useEffect(() => {
         setBgImg(generateRandomImages());
     }, []);
