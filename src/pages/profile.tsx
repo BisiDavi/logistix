@@ -14,6 +14,7 @@ const Profile = () => {
                     .profile {
                         display: flex;
                         flex-direction: column;
+                        background-color: white;
                     }
                     .welcome-note {
                         height: 30px;
