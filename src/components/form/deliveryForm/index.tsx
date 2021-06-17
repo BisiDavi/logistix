@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
@@ -7,10 +7,20 @@ import { PrependInput } from '../fields/inputs';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
+import { generateRandomImages } from '@utils/.';
 import styles from '@styles/form.module.css';
 
 const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);
+    const [bgImg, setBgImg] = useState('');
+
+    //const bgImg = generateRandomImages();
+
+    useEffect(() => {
+        setBgImg(generateRandomImages());
+    }, []);
+
+    console.log('randomBackgroundImage', bgImg);
 
     const openModal = () => setShowModal(true);
     const closeModal = () => setShowModal(false);
@@ -97,7 +107,7 @@ const DeliveryForm = () => {
             <style jsx>
                 {`
                     .delivery-form {
-                        background-image: url('/deliveryCar.jpg');
+                        background-image: url(${bgImg});
                         height: 85vh;
                         width: 100%;
                         background-position: center;

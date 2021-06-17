@@ -18,7 +18,7 @@ const Section = ({ data }) => {
                 : Array(3)
                       .fill(3)
                       .map((val, index) => (
-                          <div key={index} className='loader'>
+                          <div key={index} className='loader mx-3'>
                               <SectionLoader />
                           </div>
                       ))}
