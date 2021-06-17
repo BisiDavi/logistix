@@ -71,7 +71,7 @@ export const Profilecard = styled.div`
     flex-direction: column;
     margin: 20px;
     padding: 20px;
-    box-shadow: 1px 3px 10px 10px #f5ecd9;
+    box-shadow: 1px 3px 10px 10px #c85a5f14;
     font-family: 'Roboto', sans-serif;
 
     h4 {

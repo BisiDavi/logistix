@@ -31,6 +31,8 @@ const UserTab = () => {
                 {`
                     .profilePage {
                         padding: 15px;
+                        background-color: #c85a5f14;
+                        padding-bottom: 50px;
                     }
                     .welcome-note {
                         height: 30px;
