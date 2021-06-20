@@ -1,24 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { Button, AuthModal } from '@components/.';
 import { PrependInput } from '../fields/inputs';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
-import { generateRandomImages } from '@utils/.';
+//import { generateRandomImages } from '@utils/.';
 import styles from '@styles/form.module.css';
 
 const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);
-    const [bgImg, setBgImg] = useState('');
-
-    useEffect(() => {
-        setBgImg(generateRandomImages());
-    }, []);
-
-    console.log('randomBackgroundImage', bgImg);
+    //const [bgImg, setBgImg] = useState('');
+    //const bgImg = generateRandomImages();
+    //console.log('randomBackgroundImage', bgImg);
 
     const openModal = () => setShowModal(true);
     const closeModal = () => setShowModal(false);
@@ -37,34 +32,6 @@ const DeliveryForm = () => {
             openModal();
         },
     });
-    const [headerStyle, setHeaderStyle] = useState<React.CSSProperties | any>({
-        transition: 'all 200ms ease-in',
-        position: 'relative',
-    });
-
-    useScrollPosition(
-        ({ currPos }) => {
-            const isVisible = currPos.y < -160;
-
-            const shouldBeStyle = {
-                position: isVisible ? 'fixed' : 'relative',
-                top: '0',
-                left: '0',
-                width: '100%',
-                height: '40px',
-                zIndex: '200',
-                visibility: 'visible',
-                transition: `all 200ms ${isVisible ? 'ease-in' : 'ease-out'}`,
-                transform: isVisible ? 'none' : 'translate(0, -100%)',
-            };
-
-            if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerStyle))
-                return;
-
-            setHeaderStyle(shouldBeStyle);
-        },
-        [headerStyle],
-    );
 
     const prependInput = {
         name: 'deliveryAddress',
@@ -85,10 +52,7 @@ const DeliveryForm = () => {
                     className={`${styles.form} ${styles.deliveryForm} mx-auto`}
                     onSubmit={submitHandler}
                 >
-                    <span
-                        className={styles.prependInput}
-                        style={{ ...headerStyle }}
-                    >
+                    <span className={styles.prependInput}>
                         <PrependInput
                             icon='map'
                             field={prependInput}
@@ -105,7 +69,7 @@ const DeliveryForm = () => {
             <style jsx>
                 {`
                     .delivery-form {
-                        background-image: url(${bgImg});
+                        background-image: url('/deliveryBoy.jpg');
                         height: 85vh;
                         width: 100%;
                         background-position: center;

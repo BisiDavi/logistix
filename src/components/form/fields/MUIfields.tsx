@@ -37,14 +37,15 @@ const useStyles = makeStyles({
     },
 });
 
-const MUIFields = () => {
+const MUIFields = (formik, field) => {
     const classes = useStyles();
 
-    const TextInput = ({ field, formik }) => {
+    const TextInput = ({ index }) => {
         return (
             <TextField
                 id={field.name}
-                fullWidth
+								fullWidth
+								key={index}
                 value={formik.values[field.name]}
                 onChange={formik.handleChange}
                 name={field.name}
@@ -61,7 +62,7 @@ const MUIFields = () => {
         );
     };
 
-    const MUISelect = ({ field, formik }) => {
+    const MUISelect = ({ index }) => {
         return (
             <FormControl fullWidth>
                 <InputLabel id={field.name}>{field.placeholder}</InputLabel>
@@ -69,6 +70,7 @@ const MUIFields = () => {
                     onChange={formik.handleChange}
                     value={formik.values[field.name]}
                     id={field.name}
+                    key={index}
                     name={field.name}
                     error={
                         formik.touched[field.name] &&
@@ -76,7 +78,7 @@ const MUIFields = () => {
                     }
                 >
                     {field.options.map((item, index) => (
-                        <MenuItem key={index} value={item}>
+                        <MenuItem value={item} key={index}>
                             {item}
                         </MenuItem>
                     ))}
@@ -88,7 +90,7 @@ const MUIFields = () => {
         );
     };
 
-    const MUIRadio = ({ field, formik }) => {
+    const MUIRadio = ({ index }) => {
         //const classes = useStyles();
         return (
             <FormControl className={classes.formControl} component='fieldset'>
@@ -99,12 +101,12 @@ const MUIFields = () => {
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     aria-label={field.name}
+                    key={index}
                     name={field.name}
                     className={classes.radioGroup}
                 >
                     {field.labels.map((item, index) => (
                         <FormControlLabel
-                            key={index}
                             value={item}
                             control={<Radio />}
                             label={item}
@@ -115,7 +117,7 @@ const MUIFields = () => {
         );
     };
 
-    const PasswordField = ({ field, formik }) => {
+    const PasswordField = ({ index }) => {
         const [showPassword, setShowPassword] = useState<boolean>(false);
 
         const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -134,6 +136,7 @@ const MUIFields = () => {
                 <Input
                     type={inputType}
                     fullWidth
+                    key={index}
                     name={field.name}
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
