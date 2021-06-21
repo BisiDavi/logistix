@@ -26,7 +26,7 @@ export const Input = ({ field, formik }) => {
     );
 };
 
-export const PrependInput = ({ icon, field, formik }) => {
+export const PrependInput = ({ icon, field, formik, inputRef }) => {
     return (
         <InputGroup>
             <InputGroup.Prepend className={styles.prepend}>

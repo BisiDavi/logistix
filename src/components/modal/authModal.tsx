@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import AppModal from '.';
 import AppTab from '@components/tabs';
-import styles from './modal.module.css';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
+import StaticModal from './StaticModal';
+import styles from './modal.module.css';
 import { Authmodal } from '@styles/.';
 
 const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
@@ -15,7 +15,7 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
         ],
     };
     return (
-        <AppModal show={show} onHide={onHide} className={styles.AppModal}>
+        <StaticModal show={show} onHide={onHide} className={styles.AppModal}>
             <Authmodal className='authModal'>
                 {/*<h5>Hello, Please login or create an account by signing up</h5>*/}
                 <AppTab tabData={tabData} />
@@ -31,7 +31,7 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
                     </div>
                 </div>
             </Authmodal>
-        </AppModal>
+        </StaticModal>
     );
 };
 interface AuthModalProps {

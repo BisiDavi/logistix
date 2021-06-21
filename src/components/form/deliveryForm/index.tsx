@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { Button, AuthModal } from '@components/.';
-import { PrependInput } from '../fields/inputs';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
 //import { generateRandomImages } from '@utils/.';
 import styles from '@styles/form.module.css';
+import PlacesAutocompleteInput from '../fields/PlacesAutocompleteInput';
+import MapModal from '@components/modal/MapModal';
 
 const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);
+    const [showMap, setShowMap] = useState(false);
     //const [bgImg, setBgImg] = useState('');
     //const bgImg = generateRandomImages();
     //console.log('randomBackgroundImage', bgImg);
@@ -44,19 +46,23 @@ const DeliveryForm = () => {
         formik.handleSubmit();
     };
 
+    const displayModal = (value) => setShowMap(value);
+
     return (
         <div className='delivery-form position-relative'>
             <div className='overlay'></div>
             <div className='form-wrapper'>
+                <MapModal show={showMap} onHide={() => displayModal(false)} />
                 <Form
                     className={`${styles.form} ${styles.deliveryForm} mx-auto`}
                     onSubmit={submitHandler}
                 >
+                    {/*<AutocompleteInput />*/}
                     <span className={styles.prependInput}>
-                        <PrependInput
-                            icon='map'
+                        <PlacesAutocompleteInput
                             field={prependInput}
                             formik={formik}
+                            displayModal={() => displayModal(true)}
                         />
                     </span>
                     <>
