@@ -1,19 +1,18 @@
 import React, {useContext} from 'react'
 import { FirebaseContext } from './firebase'
-import useRedux from '@hooks/useRedux';
 import 'firebase/auth'
 import { SignupRequestAction, SignupSuccessfulAction } from '@store/actions';
+import { SigninRequestAction, SigninSuccessfulAction } from '@store/actions/AuthAction';
 
-const FirebaseAuth = () => {
+const FirebaseAuth = (_dispatch) => {
 	const firebaseContext = useContext(FirebaseContext);
 	const firebaseAuth = firebaseContext.auth();
-	const {dispatch} = useRedux()
 
 	const createUserWithEmailAndPassword = (email, password) => {
-		dispatch(SignupRequestAction())
+		_dispatch(SignupRequestAction())
 		firebaseAuth.createUserWithEmailAndPassword(email,password)
 		.then(()=> {
-			dispatch(SignupSuccessfulAction())
+			_dispatch(SignupSuccessfulAction())
 		}).catch((error) =>{
 			let errorCode = error.code;
 			let errorMessage = error.message;
@@ -48,7 +47,11 @@ const FirebaseAuth = () => {
 	}
 
 	const signInWithEmailAndPassword = (email, password) => {
-		firebaseAuth.signInWithEmailAndPassword(email, password).catch((error) => {
+		_dispatch(SigninRequestAction())
+		firebaseAuth.signInWithEmailAndPassword(email, password)
+		.then(()=> {
+			_dispatch(SigninSuccessfulAction())
+		}).catch((error) => {
 			let errorCode = error.code;
 			let errorMessage = error.message;
 			if(errorCode === 'auth/wrong-password'){

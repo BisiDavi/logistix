@@ -11,8 +11,8 @@ import { ToggleModalAction } from '@store/actions';
 import useRedux from '@hooks/useRedux';
 
 const SignupForm = () => {
-	const {createUserWithEmailAndPassword} = FirebaseAuth();
 	const {dispatch} = useRedux()
+	const {createUserWithEmailAndPassword} = FirebaseAuth(dispatch);
 
     const formik = useFormik({
         initialValues: {

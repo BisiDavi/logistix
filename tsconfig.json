@@ -38,8 +38,8 @@
     },
     "exclude": ["node_modules"],
     "include": [
-        "**/*.ts",
-        "**/*.tsx",
+        "**/**/*.ts",
+        "**/**/*.tsx",
         "next-env.d.ts",
         "next.config.js",
         "src/components/typewriter/index.jsx"

@@ -7,25 +7,43 @@ import SuccessModal from '@components/modal/SuccessModal';
 const CreateOrder = () => {
 	const {selectState} = useRedux();
 
-	const [showModal, setShowModal] = useState(false);
+	const [signupSuccessful, setSignupSuccessful] = useState(false);
+	const [loginSuccessful, setLoginSuccessful] = useState(false);
+
 
 	const signupState = selectState("auth");
 
-	const {signup, loading} = signupState;
+	const {signup, loading, login} = signupState;
 
 	useEffect(() => {
 		if(signup.newSignup){
-			setShowModal(true)
+			setSignupSuccessful(true)
 		}
 	}, [])
 
-	const closeModal = () => setShowModal(false)
+	useEffect(() => {
+		if(login.loggedIn){
+			setLoginSuccessful(true)
+		}
+	}, [])
+
+	const closeSignupSuccessModal = () => setSignupSuccessful(false)
+	const closeLoginSuccessModal = () => setLoginSuccessful(false)
 
     return (
         <>
             <PageTitle title='create order' />
 						{loading && <Loading />}
-						<SuccessModal text="Thanks for signing up, Order Received" show={showModal} onHide={closeModal} />
+						<SuccessModal
+							text="Thanks for signing up, Order Received"
+							show={signupSuccessful}
+							onHide={closeSignupSuccessModal}
+						/>
+						<SuccessModal
+							text="You're logged in, Order Received"
+							show={loginSuccessful}
+							onHide={closeLoginSuccessModal}
+						/>
             <DeliveryForm />
         </>
     );
