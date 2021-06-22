@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { PageTitle } from '@components/.';
+import { Loading, PageTitle } from '@components/.';
 import DeliveryForm from '@components/form/deliveryForm';
 import { useRedux } from '@hooks/.';
 import SuccessModal from '@components/modal/SuccessModal';
-import { RootState } from '@store/reducer/RootReducer';
-import { useSelector } from 'react-redux';
 
 const CreateOrder = () => {
 	const {selectState} = useRedux();
@@ -13,11 +11,10 @@ const CreateOrder = () => {
 
 	const signupState = selectState("auth");
 
-	const {signup} = signupState;
+	const {signup, loading} = signupState;
 
 	useEffect(() => {
-		//if(signup.newSignup){
-		if(1){
+		if(signup.newSignup){
 			setShowModal(true)
 		}
 	}, [])
@@ -27,6 +24,7 @@ const CreateOrder = () => {
     return (
         <>
             <PageTitle title='create order' />
+						{loading && <Loading />}
 						<SuccessModal text="Thanks for signing up, Order Received" show={showModal} onHide={closeModal} />
             <DeliveryForm />
         </>

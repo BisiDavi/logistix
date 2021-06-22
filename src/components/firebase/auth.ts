@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { FirebaseContext } from './firebase'
 import useRedux from '@hooks/useRedux';
 import 'firebase/auth'
-import { SignupAction } from '@store/actions';
+import { SignupRequestAction, SignupSuccessfulAction } from '@store/actions';
 
 const FirebaseAuth = () => {
 	const firebaseContext = useContext(FirebaseContext);
@@ -10,9 +10,10 @@ const FirebaseAuth = () => {
 	const {dispatch} = useRedux()
 
 	const createUserWithEmailAndPassword = (email, password) => {
+		dispatch(SignupRequestAction())
 		firebaseAuth.createUserWithEmailAndPassword(email,password)
 		.then(()=> {
-			dispatch(SignupAction())
+			dispatch(SignupSuccessfulAction())
 		}).catch((error) =>{
 			let errorCode = error.code;
 			let errorMessage = error.message;

@@ -1,3 +1,3 @@
 export {ToggleModalAction} from './ToggleModalAction'
-export {SignupAction} from './AuthAction'
+export {SignupRequestAction,SignupSuccessfulAction} from './AuthAction'
 

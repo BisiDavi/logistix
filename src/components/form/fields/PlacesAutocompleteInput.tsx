@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { usePlacesWidget } from 'react-google-autocomplete';
 import { Form, InputGroup } from 'react-bootstrap';
-import { FaMapMarker } from 'react-icons/fa';
 import styles from '@styles/form.module.css';
 
 const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formik, displayModal, index }) => {
@@ -19,10 +18,10 @@ const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formi
         },
     });
     return (
-        <InputGroup>
+        <InputGroup className="my-2" key={index}>
             <InputGroup.Prepend className={styles.prepend}>
                 <InputGroup.Text onClick={displayModal} className={styles.text}>
-                    <FaMapMarker />
+                    <img src="/mapIcon.png" alt="map icon" />
                 </InputGroup.Text>
             </InputGroup.Prepend>
             <Form.Group className={styles.formGroup}>

@@ -17,13 +17,12 @@ import { RootState } from '@store/reducer/RootReducer';
 
 
 const DeliveryForm = () => {
-    const [showModal, setShowModal] = useState(false);
     const [showMap, setShowMap] = useState(false);
-		const {dispatch} = useRedux();
+		const {dispatch, selectState} = useRedux();
     //const [bgImg, setBgImg] = useState('');
     //const bgImg = generateRandomImages();
     //console.log('randomBackgroundImage', bgImg);
-		const {modalState} = useSelector((state:RootState) => state.modal)
+		const modal = selectState("modal")
 
     const openModal = () => dispatch(ToggleModalAction(true));
     const closeModal = () => dispatch(ToggleModalAction(false))
@@ -77,7 +76,7 @@ const DeliveryForm = () => {
                         <Button type='submit' text='Proceed' />
                     </>
                 </Form>
-                <AuthModal show={modalState} onHide={closeModal} />
+                <AuthModal show={modal.modalState} onHide={closeModal} />
             </div>
             <style jsx>
                 {`
