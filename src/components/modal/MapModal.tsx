@@ -1,7 +1,7 @@
 import React from 'react';
 import AppModal from '.';
 import styles from './modal.module.css';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, Marker } from '@react-google-maps/api';
 
 const MapModal = ({ show, onHide }) => {
     const containerStyle = {
@@ -25,7 +25,6 @@ const MapModal = ({ show, onHide }) => {
 
     return (
         <AppModal show={show} onHide={onHide} className={styles.AppModal}>
-            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_APIKEY}>
                 <GoogleMap
                     id='google-map'
                     mapContainerStyle={containerStyle}
@@ -38,7 +37,6 @@ const MapModal = ({ show, onHide }) => {
                         position={position}
                     />
                 </GoogleMap>
-            </LoadScript>
         </AppModal>
     );
 };

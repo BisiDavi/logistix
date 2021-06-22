@@ -53,7 +53,7 @@ export const fieldType = (inputField, formik, index, displayModal) => {
         }
 				case 'autocomplete':{
 					return (
-						<span className={styles.prependInput}>
+						<span key={index} className={styles.prependInput}>
 							<PlacesAutocompleteInput
 								index={index}
 								key={index}

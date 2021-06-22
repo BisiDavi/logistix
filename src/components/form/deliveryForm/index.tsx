@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
-import { useSelector } from 'react-redux';
 import { Button, AuthModal } from '@components/.';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
@@ -12,7 +11,6 @@ import PlacesAutocompleteInput from '../fields/PlacesAutocompleteInput';
 import MapModal from '@components/modal/MapModal';
 import { ToggleModalAction } from '@store/actions';
 import {useRedux} from '@hooks/.';
-import { RootState } from '@store/reducer/RootReducer';
 
 
 
