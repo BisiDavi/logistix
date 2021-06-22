@@ -107,6 +107,7 @@ const MUIFields = (formik, field) => {
                 >
                     {field.labels.map((item, index) => (
                         <FormControlLabel
+														key={index}
                             value={item}
                             control={<Radio />}
                             label={item}

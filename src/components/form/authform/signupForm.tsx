@@ -6,8 +6,14 @@ import { signupFieldArray } from './authFields';
 import { Button } from '@components/.';
 import styles from './authform.module.css';
 import { SignupSchema } from './authSchema';
+import FirebaseAuth from '@components/firebase/auth';
+import { ToggleModalAction } from '@store/actions';
+import useRedux from '@hooks/useRedux';
 
 const SignupForm = () => {
+	const {createUserWithEmailAndPassword} = FirebaseAuth();
+	const {dispatch} = useRedux()
+
     const formik = useFormik({
         initialValues: {
             fullName: '',
@@ -21,11 +27,13 @@ const SignupForm = () => {
         validationSchema: SignupSchema,
         onSubmit: (values) => {
             console.log('signup values', values);
+						createUserWithEmailAndPassword(values.email, values.password)
         },
     });
     const submitHandler = (e) => {
         e.preventDefault();
         formik.handleSubmit();
+				dispatch(ToggleModalAction(false));
     };
 
     return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
+import { useSelector } from 'react-redux';
 import { Button, AuthModal } from '@components/.';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
@@ -9,16 +10,23 @@ import { DeliverySchema } from './deliverySchema';
 import styles from '@styles/form.module.css';
 import PlacesAutocompleteInput from '../fields/PlacesAutocompleteInput';
 import MapModal from '@components/modal/MapModal';
+import { ToggleModalAction } from '@store/actions';
+import {useRedux} from '@hooks/.';
+import { RootState } from '@store/reducer/RootReducer';
+
+
 
 const DeliveryForm = () => {
     const [showModal, setShowModal] = useState(false);
     const [showMap, setShowMap] = useState(false);
+		const {dispatch} = useRedux();
     //const [bgImg, setBgImg] = useState('');
     //const bgImg = generateRandomImages();
     //console.log('randomBackgroundImage', bgImg);
+		const {modalState} = useSelector((state:RootState) => state.modal)
 
-    const openModal = () => setShowModal(true);
-    const closeModal = () => setShowModal(false);
+    const openModal = () => dispatch(ToggleModalAction(true));
+    const closeModal = () => dispatch(ToggleModalAction(false))
 
     const formik = useFormik({
         initialValues: {
@@ -46,7 +54,7 @@ const DeliveryForm = () => {
         formik.handleSubmit();
     };
 
-    const displayModal = (value) => setShowMap(value);
+    const displayModal = (value:boolean) => setShowMap(value);
 
     return (
         <div className='delivery-form position-relative'>
@@ -57,7 +65,6 @@ const DeliveryForm = () => {
                     className={`${styles.form} ${styles.deliveryForm} mx-auto`}
                     onSubmit={submitHandler}
                 >
-                    {/*<AutocompleteInput />*/}
                     <span className={styles.prependInput}>
                         <PlacesAutocompleteInput
                             field={prependInput}
@@ -66,11 +73,11 @@ const DeliveryForm = () => {
                         />
                     </span>
                     <>
-                        {displayFormFields(formFieldArray, formik)}
+                        {displayFormFields(formFieldArray, formik, displayModal)}
                         <Button type='submit' text='Proceed' />
                     </>
                 </Form>
-                <AuthModal show={showModal} onHide={closeModal} />
+                <AuthModal show={modalState} onHide={closeModal} />
             </div>
             <style jsx>
                 {`

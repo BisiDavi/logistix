@@ -23,7 +23,7 @@ const AppModal: FC<PropsWithChildren<AppModalProps>> = ({
 interface AppModalProps {
     show: boolean;
     onHide: () => void;
-    className: string;
+    className?: string;
     header?: boolean;
 }
 

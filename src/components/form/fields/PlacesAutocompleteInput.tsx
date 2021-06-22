@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import { usePlacesWidget } from 'react-google-autocomplete';
 import { Form, InputGroup } from 'react-bootstrap';
 import { FaMapMarker } from 'react-icons/fa';
 import styles from '@styles/form.module.css';
 
-const PlacesAutocompleteInput = ({ field, formik, displayModal }) => {
+const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formik, displayModal, index }) => {
+
     const { ref } = usePlacesWidget({
         apiKey: process.env.NEXT_PUBLIC_APIKEY,
         options: {
@@ -14,7 +15,7 @@ const PlacesAutocompleteInput = ({ field, formik, displayModal }) => {
             componentRestrictions: { country: 'ng' },
         },
         onPlaceSelected: (place) => {
-            formik.setFieldValue('deliveryAddress', place.formatted_address);
+            formik.setFieldValue(formik.values[field.name], place.formatted_address);
         },
     });
     return (
@@ -48,5 +49,13 @@ const PlacesAutocompleteInput = ({ field, formik, displayModal }) => {
         </InputGroup>
     );
 };
+
+
+interface PlacesAutocompleteInputProps {
+	field: any;
+	formik: any;
+	displayModal?: () => void;
+	index?:number
+}
 
 export default PlacesAutocompleteInput;

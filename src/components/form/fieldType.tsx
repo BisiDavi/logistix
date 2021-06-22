@@ -1,18 +1,15 @@
 import React from 'react';
 import { Input, RadioButton, SelectInput } from './fields/inputs';
-import MUIFields from './fields/MUIfields';
 import {
     MUIRadio,
     MUISelect,
     PasswordField,
     TextInput,
 } from './fields/FormFields';
+import PlacesAutocompleteInput from './fields/PlacesAutocompleteInput';
+import styles from '@styles/form.module.css';
 
-export const fieldType = (inputField, formik, index) => {
-    //const { MUIRadio, MUISelect, PasswordField, TextInput } = MUIFields(
-    //    formik,
-    //    inputField,
-    //);
+export const fieldType = (inputField, formik, index, displayModal) => {
 
     switch (inputField.field) {
         case 'input': {
@@ -54,6 +51,19 @@ export const fieldType = (inputField, formik, index) => {
                 />
             );
         }
+				case 'autocomplete':{
+					return (
+						<span className={styles.prependInput}>
+							<PlacesAutocompleteInput
+								index={index}
+								key={index}
+								field={inputField}
+								formik={formik}
+								displayModal={() => displayModal(true)}
+							/>
+						</span>
+					)
+				}
         case 'password': {
             return <PasswordField index={index} key={index} formik={formik}
 						field={inputField} />;
@@ -63,5 +73,7 @@ export const fieldType = (inputField, formik, index) => {
     }
 };
 
-export const displayFormFields = (formField, formik) =>
-    formField.map((field, index) => fieldType(field, formik, index));
+export const displayFormFields = (formField:any, formik:any,
+	displayModal?:(value:boolean)=> void) =>
+    formField.map((field, index) => fieldType(field, formik, index, displayModal));
+

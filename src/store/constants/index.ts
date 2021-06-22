@@ -1,1 +1,7 @@
 export const SIGNUP = 'SIGNUP';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const TOGGLE_MODAL_ERROR = 'TOGGLE_MODAL_ERROR';
+export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
+export const SIGNUP_SUCCESSFUL = 'SIGNUP_SUCCESSFUL';
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+

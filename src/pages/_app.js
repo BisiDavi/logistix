@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { Provider } from 'react-redux';
 import NProgress from 'nprogress';
 import { Loading } from '@components/.';
+import FirebaseProvider from '@components/firebase/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Pagelayout } from '@layout/.';
 import store from '../store';
@@ -82,11 +83,13 @@ function MyApp({ Component, pageProps }) {
             </Head>
             {loading && <Loading />}
             <CssBaseline />
-            <Provider store={store}>
-                <Pagelayout>
-                    <Component {...pageProps} />
-                </Pagelayout>
-            </Provider>
+						<FirebaseProvider>
+							<Provider store={store}>
+									<Pagelayout>
+											<Component {...pageProps} />
+									</Pagelayout>
+							</Provider>
+						</FirebaseProvider>
         </div>
     );
 }

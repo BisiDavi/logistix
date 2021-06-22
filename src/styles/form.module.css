@@ -52,6 +52,10 @@
     opacity: 0.75;
 }
 
+.prependInput{
+	margin:10px 0px;
+}
+
 .prependInput input {
     border-radius: 0px;
     height: 40px;

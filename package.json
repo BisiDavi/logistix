@@ -25,6 +25,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "firebase": "^8.6.8",
     "formik": "^2.2.9",
     "google-map-react": "^2.1.9",
     "graphql": "^15.5.0",

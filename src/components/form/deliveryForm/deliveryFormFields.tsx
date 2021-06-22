@@ -11,7 +11,7 @@ export const formFieldArray = [
         name: 'pickupAddress',
         type: 'text',
         placeholder: 'Pickup Address',
-        field: 'text-input',
+        field: 'autocomplete',
     },
     {
         name: 'deliveryMethod',
@@ -20,7 +20,7 @@ export const formFieldArray = [
         placeholder: 'Select your Delivery method',
         options: ['Select your Delivery method', 'bike', 'van'],
         field: 'mui-select',
-    },
+    }, 
     {
         name: 'state',
         type: 'text',
