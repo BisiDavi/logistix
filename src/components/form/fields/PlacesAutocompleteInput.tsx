@@ -9,12 +9,12 @@ const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formi
         apiKey: process.env.NEXT_PUBLIC_APIKEY,
         options: {
             types: ['establishment'],
-            fields: ['formatted_address', 'geometry'],
+            //fields: ['formatted_address', 'geometry'],
             locationBias: { lat: 6.5244, lng: 3.3792 },
             componentRestrictions: { country: 'ng' },
         },
         onPlaceSelected: (place) => {
-            formik.setFieldValue(formik.values[field.name], place.formatted_address);
+            formik.setFieldValue(field.name, place.formatted_address);
         },
     });
     return (

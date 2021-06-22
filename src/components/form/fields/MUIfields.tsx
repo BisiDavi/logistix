@@ -91,9 +91,8 @@ const MUIFields = (formik, field) => {
     };
 
     const MUIRadio = ({ index }) => {
-        //const classes = useStyles();
         return (
-            <FormControl className={classes.formControl} component='fieldset'>
+            <FormControl key={index} className={classes.formControl} component='fieldset'>
                 <FormLabel className={classes.legend} component='legend'>
                     {field.name}
                 </FormLabel>
@@ -101,7 +100,6 @@ const MUIFields = (formik, field) => {
                     value={formik.values[field.name]}
                     onChange={formik.handleChange}
                     aria-label={field.name}
-                    key={index}
                     name={field.name}
                     className={classes.radioGroup}
                 >
