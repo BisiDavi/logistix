@@ -8,7 +8,7 @@ const FirebaseAuth = () => {
     const firebaseAuth = firebaseContext.auth();
 
     const handleError = (error) => {
-        toast.error('An error just occured' + error.message);
+        toast.error('An error just occured ' + error.message);
         console.log(error);
     };
 
