@@ -4,7 +4,7 @@ import { Hamburger, Logo } from '@components/icons';
 import { Button } from '@components/.';
 import styles from '../../styles/nav.module.css';
 
-const Nav: FC<NavProps> = ({ onOpen }) => {
+const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
     return (
         <Container as='nav' fluid className={`${styles.nav} p-3`}>
             <Row className='justify-content-between align-items-center'>
@@ -15,7 +15,7 @@ const Nav: FC<NavProps> = ({ onOpen }) => {
                     <Logo />
                 </Col>
                 <Col xs={3}>
-                    <Button text='signup' />
+                    <Button onClick={toggleAuth} text='signup' />
                 </Col>
             </Row>
         </Container>
@@ -23,6 +23,7 @@ const Nav: FC<NavProps> = ({ onOpen }) => {
 };
 interface NavProps {
     onOpen: () => void;
+		toggleAuth: () => void
 }
 
 export default Nav;

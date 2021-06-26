@@ -1,17 +1,23 @@
-import React, { FC } from 'react';
-import { Nav, Footer, Sidebar } from '@components/.';
+import React, { FC, useState } from 'react';
+import { Nav, Footer, Sidebar, AuthModal } from '@components/.';
 import { useToggle } from '@hooks/.';
 
 const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
     const { toggle, toggled } = useToggle();
+    const [userSignup, setSignup] = useState<boolean>(false);
+
+    const authHandler = () => setSignup(!userSignup);
 
     return (
         <>
             <header>
-                <Nav onOpen={() => toggled(true)} />
+                <Nav toggleAuth={authHandler} onOpen={() => toggled(true)} />
             </header>
             {toggle && <Sidebar onClose={() => toggled(false)} />}
-            <main>{children}</main>
+            <main>
+                <AuthModal show={userSignup} onHide={authHandler} />
+                {children}
+            </main>
             <Footer />
             <style jsx>
                 {`

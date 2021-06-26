@@ -21,7 +21,7 @@
             "@models/*": ["./src/models/*"],
             "@hooks/*": ["./src/hooks/*"],
             "@services/*": ["./src/services/*"],
-            "@constants": ["./src/constants.ts"],
+            "@constants/*": ["./src/constants/*"],
             "@context/*": ["./src/context/*"],
             "@queries/*": ["./src/queries/*"],
             "@data/*": ["./src/data/*"],
@@ -31,6 +31,7 @@
             "@app/*": ["./src/app/*"],
             "@assets/*": ["./src/assets/*"],
             "@styles/*": ["./src/styles/*"],
+						"@firebase/*": ["./src/firebase/*"],
             "@store/*": ["./src/store/*"],
             "@json/*": ["./src/json/*"],
             "@screen/*": ["./src/screen/*"]

@@ -11,13 +11,12 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
         defaultTab: 'signup',
         content: [
             { eventKey: 'signup', title: 'Signup' },
-            { eventKey: 'login', title: 'Login' },
+            //{ eventKey: 'login', title: 'Login' },
         ],
     };
     return (
         <StaticModal show={show} onHide={onHide} className={styles.AppModal}>
             <Authmodal className='authModal'>
-                {/*<h5>Hello, Please login or create an account by signing up</h5>*/}
                 <AppTab tabData={tabData} />
                 <div className='socials'>
                     <h4>Access via Facebook or Google</h4>

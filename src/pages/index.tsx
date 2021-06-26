@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { PageTitle, TextAnimate, ImageSlider } from '@components/.';
+import FirebaseAuth from '@firebase/auth';
+import { ToastContainer } from 'react-toastify';
 import Section from '@components/text/section';
+import EmailModal from '@components/modal/EmailModal';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
     const [data, setData] = useState(null);
+    const [user, setUser] = useState({
+        showEmail: false,
+        confirmationEmail: '',
+        details: null,
+    });
+    const { handleSignIn } = FirebaseAuth();
     const fetchData = async () => {
         await fetch('/api/core-values', {
             headers: {
@@ -15,9 +25,21 @@ const Home = () => {
             .then((d) => setData(d));
     };
 
+    const closeEmailModal = () =>
+        setUser({
+            ...user,
+            showEmail: false,
+        });
+
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        handleSignIn(user, setUser);
+    }, []);
+
+    console.log('user', user);
 
     return (
         <>
@@ -25,6 +47,12 @@ const Home = () => {
             <section>
                 <TextAnimate />
                 <ImageSlider />
+                <EmailModal
+                    user={user}
+                    setEmail={setUser}
+                    onHide={closeEmailModal}
+                />
+                <ToastContainer />
             </section>
             <Section data={data} />
             <style jsx>

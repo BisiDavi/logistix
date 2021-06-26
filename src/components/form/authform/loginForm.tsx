@@ -3,25 +3,25 @@ import { useFormik } from 'formik';
 import { Form } from 'react-bootstrap';
 import { useRedux } from '@hooks/.';
 import { Button } from '@components/.';
-import FirebaseAuth from '@components/firebase/auth';
+import FirebaseAuth from '@firebase/auth';
 import { displayFormFields } from '../fieldType';
 import { loginFieldArray } from './authFields';
 import styles from './authform.module.css';
 import { LoginSchema } from './authSchema';
 
 const LoginForm = () => {
-	const { dispatch }= useRedux();
-	const {signInWithEmailAndPassword} = FirebaseAuth(dispatch);
+    const { dispatch } = useRedux();
+    //const { signInWithEmailAndPassword } = FirebaseAuth(dispatch);
 
     const formik = useFormik({
         initialValues: {
             userEmail: '',
-            userPassword: '',
+            //userPassword: '',
         },
         validationSchema: LoginSchema,
         onSubmit: (values) => {
             console.log('login values', values);
-						signInWithEmailAndPassword(values.userEmail, values.userPassword)
+            //signInWithEmailAndPassword(values.userEmail, values.userPassword)
         },
     });
     const submitHandler = (e) => {

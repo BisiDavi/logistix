@@ -4,11 +4,11 @@ import Router from 'next/router';
 import { Provider } from 'react-redux';
 import NProgress from 'nprogress';
 import { Loading } from '@components/.';
-import FirebaseProvider from '@components/firebase/firebase';
+import FirebaseProvider from '@firebase/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Pagelayout } from '@layout/.';
-import store from '../store';
-import '../styles/globals.css';
+import store from '@store/.';
+import '@styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -83,13 +83,13 @@ function MyApp({ Component, pageProps }) {
             </Head>
             {loading && <Loading />}
             <CssBaseline />
-						<FirebaseProvider>
-							<Provider store={store}>
-									<Pagelayout>
-											<Component {...pageProps} />
-									</Pagelayout>
-							</Provider>
-						</FirebaseProvider>
+            <FirebaseProvider>
+                <Provider store={store}>
+                    <Pagelayout>
+                        <Component {...pageProps} />
+                    </Pagelayout>
+                </Provider>
+            </FirebaseProvider>
         </div>
     );
 }

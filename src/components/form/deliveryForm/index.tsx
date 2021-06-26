@@ -1,29 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Form } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import { Button, AuthModal } from '@components/.';
 import { displayFormFields } from '../fieldType';
 import { formFieldArray } from './deliveryFormFields';
 import { DeliverySchema } from './deliverySchema';
-//import { generateRandomImages } from '@utils/.';
 import styles from '@styles/form.module.css';
 import PlacesAutocompleteInput from '../fields/PlacesAutocompleteInput';
 import MapModal from '@components/modal/MapModal';
 import { ToggleModalAction } from '@store/actions';
-import {useRedux} from '@hooks/.';
-
-
+import { useRedux } from '@hooks/.';
 
 const DeliveryForm = () => {
     const [showMap, setShowMap] = useState(false);
-		const {dispatch, selectState} = useRedux();
-    //const [bgImg, setBgImg] = useState('');
-    //const bgImg = generateRandomImages();
-    //console.log('randomBackgroundImage', bgImg);
-		const modal = selectState("modal")
+    const [showDeliveryMethodModal, setShowDeliveryMethodModal] = useState(
+        false,
+    );
+    const { dispatch, selectState } = useRedux();
+    const modal = selectState('modal');
 
     const openModal = () => dispatch(ToggleModalAction(true));
-    const closeModal = () => dispatch(ToggleModalAction(false))
+    const closeModal = () => dispatch(ToggleModalAction(false));
 
     const formik = useFormik({
         initialValues: {
@@ -36,7 +34,8 @@ const DeliveryForm = () => {
         validationSchema: DeliverySchema,
         onSubmit: (values) => {
             console.log('values', values);
-            openModal();
+            toast.success('Order Received, thanks for using logistix');
+            //openModal();
         },
     });
 
@@ -51,7 +50,7 @@ const DeliveryForm = () => {
         formik.handleSubmit();
     };
 
-    const displayModal = (value:boolean) => setShowMap(value);
+    const displayModal = (value: boolean) => setShowMap(value);
 
     return (
         <div className='delivery-form position-relative'>
@@ -70,7 +69,11 @@ const DeliveryForm = () => {
                         />
                     </span>
                     <>
-                        {displayFormFields(formFieldArray, formik, displayModal)}
+                        {displayFormFields(
+                            formFieldArray,
+                            formik,
+                            displayModal,
+                        )}
                         <Button type='submit' text='Proceed' />
                     </>
                 </Form>

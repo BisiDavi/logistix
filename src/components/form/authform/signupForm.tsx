@@ -6,34 +6,32 @@ import { signupFieldArray } from './authFields';
 import { Button } from '@components/.';
 import styles from './authform.module.css';
 import { SignupSchema } from './authSchema';
-import FirebaseAuth from '@components/firebase/auth';
+import FirebaseAuth from '@firebase/auth';
 import { ToggleModalAction } from '@store/actions';
 import useRedux from '@hooks/useRedux';
 
 const SignupForm = () => {
-	const {dispatch} = useRedux()
-	const {createUserWithEmailAndPassword} = FirebaseAuth(dispatch);
+    const { dispatch } = useRedux();
+    const { withEmailLinkSignIn } = FirebaseAuth();
 
     const formik = useFormik({
         initialValues: {
-            fullName: '',
             email: '',
-            sex: '',
             phoneNumber: '',
             location: '',
-            password: '',
-            confirmPassword: '',
         },
         validationSchema: SignupSchema,
         onSubmit: (values) => {
             console.log('signup values', values);
-						createUserWithEmailAndPassword(values.email, values.password)
+            withEmailLinkSignIn(values.email);
         },
     });
+
     const submitHandler = (e) => {
         e.preventDefault();
         formik.handleSubmit();
-				dispatch(ToggleModalAction(false));
+        console.log('I was clicked');
+        dispatch(ToggleModalAction(false));
     };
 
     return (
