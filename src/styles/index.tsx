@@ -42,12 +42,16 @@ export const TextCard = styled.section`
     display: flex;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    margin: 10px;
+    margin: 20px auto;
     padding: 10px;
     box-shadow: 1px 10px 20px 10px #fff2d9;
+    min-height: 300px;
+    max-height: 400px;
+    height: 320px;
 
     img {
-        height: 100%;
+        min-height: 250px;
+        max-height: 300px;
         width: 100%;
     }
 
@@ -56,6 +60,8 @@ export const TextCard = styled.section`
         text-align: center;
         color: white;
         padding: 0px 10px;
+        z-index: 1;
+        width: 100%;
     }
     .text h3 {
         font-size: 20px;
