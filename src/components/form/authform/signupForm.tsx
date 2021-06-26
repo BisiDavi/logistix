@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import { Form } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
@@ -8,12 +8,20 @@ import useRedux from '@hooks/useRedux';
 import { displayFormFields } from '../fieldType';
 import { signupFieldArray } from './authFields';
 import { Button } from '@components/.';
-import styles from './authform.module.css';
 import { SignupSchema } from './authSchema';
+import styles from './authform.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignupForm = () => {
     const { dispatch } = useRedux();
+    const [userEmail, setUserEmail] = useState('');
     const { withEmailLinkSignIn } = FirebaseAuth();
+
+    useEffect(() => {
+        if (userEmail.length > 3) {
+            withEmailLinkSignIn(userEmail);
+        }
+    }, [userEmail]);
 
     const formik = useFormik({
         initialValues: {
@@ -23,8 +31,7 @@ const SignupForm = () => {
         },
         validationSchema: SignupSchema,
         onSubmit: (values) => {
-            console.log('signup values', values);
-            withEmailLinkSignIn(values.email);
+            setUserEmail(values.email);
         },
     });
 
