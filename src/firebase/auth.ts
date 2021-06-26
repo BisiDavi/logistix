@@ -22,7 +22,7 @@ const FirebaseAuth = () => {
 
     const withEmailLinkSignIn = (email) => {
         let actionCodeSettings = {
-            url: 'https://www.logistix.vercel.app',
+            url: 'www.logistix.vercel.app',
             handleCodeInApp: true,
         };
 
