@@ -39,8 +39,6 @@ const Home = () => {
         handleSignIn(user, setUser);
     }, []);
 
-    console.log('user', user);
-
     return (
         <>
             <PageTitle title='Get your products delivered just in time.' />
