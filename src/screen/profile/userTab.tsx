@@ -8,6 +8,9 @@ import { userData, nameInitials } from './profileData';
 export default function UserTab() {
     const [session] = useSession();
     const { name, phoneNumber, location } = userData;
+    console.log('session user name', session.user.name);
+    console.log('session', session);
+
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />
