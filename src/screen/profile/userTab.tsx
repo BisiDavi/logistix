@@ -13,7 +13,17 @@ export default function UserTab() {
             <PageTitle title='Profile' />
             <div className='parcel-details'>
                 <div className='user-profile mt-2'>
-                    <div className='profile-icon'>{nameInitials(name)}</div>
+                    {session.user.image ? (
+                        <img
+                            className='userImage'
+                            src={session.user.image}
+                            alt='user'
+                        />
+                    ) : (
+                        <div className='profile-icon'>
+                            {nameInitials(session.user.name)}
+                        </div>
+                    )}
                     <div className='user-details'>
                         <h5>Name:{session.user.name || session.user.email}</h5>
                         <h5>Phone number: {phoneNumber}</h5>
@@ -73,6 +83,12 @@ export default function UserTab() {
                         font-size: 40px;
                         color: white;
                         margin-bottom: 20px;
+                    }
+                    .userImage {
+                        border-radius: 50%;
+                        height: 100px;
+                        width: 100px;
+                        margin: auto;
                     }
                 `}
             </style>
