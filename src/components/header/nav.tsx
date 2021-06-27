@@ -23,9 +23,6 @@ const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
                     <Logo />
                 </Col>
                 <Col className='d-flex align-items-center' xs={3}>
-                    {session && (
-                        <p>Hello, {session.user.name || session.user.email}</p>
-                    )}
                     {session ? (
                         <Button onClick={signOutHandler} text='signout' />
                     ) : (
@@ -33,6 +30,21 @@ const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
                     )}
                 </Col>
             </Row>
+            <Row>
+                {session && (
+                    <p className='username'>
+                        Hello, {session.user.name || session.user.email}
+                    </p>
+                )}
+            </Row>
+            <style jsx>
+                {`
+                    p.username {
+                        font-size: 12px;
+                        font-weight: bold;
+                    }
+                `}
+            </style>
         </Container>
     );
 };
