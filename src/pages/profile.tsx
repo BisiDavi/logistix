@@ -6,9 +6,7 @@ import { TypewriterEffect } from '@components/.';
 const Profile = () => {
     const [session] = useSession();
     console.log('session', session);
-    const userName =
-        (session !== undefined && session.user.name) ||
-        (session !== undefined && session.user.email);
+    const userName = session ? session.user.name || session.user.email : '';
     return (
         <div className='profile'>
             {session ? (
@@ -30,6 +28,7 @@ const Profile = () => {
                         display: flex;
                         flex-direction: column;
                         background-color: white;
+                        height: 100vh;
                     }
                     .welcome-note {
                         height: 30px;

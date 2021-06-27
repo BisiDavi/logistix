@@ -1,5 +1,6 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { signIn } from 'next-auth/client';
+import { useRouter } from 'next/router';
 import AppTab from '@components/tabs';
 import { ToastContainer, toast } from 'react-toastify';
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
@@ -21,6 +22,16 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
                 ),
             )
             .catch(() => toast.error('An error occured, please try again'));
+    const router = useRouter();
+    router.pathname.includes('&error=OAuthAccountNotLinked');
+
+    useEffect(() => {
+        if (router.pathname.includes('&error=OAuthAccountNotLinked')) {
+            toast.error(
+                'That email is already in our database, please use email method to sign in',
+            );
+        }
+    }, []);
 
     return (
         <StaticModal show={show} onHide={onHide} className={styles.AppModal}>

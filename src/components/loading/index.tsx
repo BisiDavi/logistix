@@ -21,12 +21,12 @@ const Loading = () => {
                         width: 200px;
                     }
                     .loading {
-                        height: 100vh;
+                        height: 100%;
                         width: 100%;
                         background-color: rgba(0, 0, 0, 0.2);
                         position: absolute;
                         top: 0px;
-                        z-index: 1000;
+                        z-index: 100;
                         display: flex;
                         justify-content: center;
                         align-items: center;

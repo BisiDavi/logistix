@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { signIn } from 'next-auth/client';
 import { Form } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import { ToggleModalAction } from '@store/actions';
 import useRedux from '@hooks/useRedux';
 import { displayFormFields } from '../fieldType';
@@ -17,8 +17,10 @@ const SignupForm = () => {
 
     const formik = useFormik({
         initialValues: {
+            fullName: '',
             email: '',
             phoneNumber: '',
+            sex: '',
             location: '',
         },
         validationSchema: SignupSchema,
