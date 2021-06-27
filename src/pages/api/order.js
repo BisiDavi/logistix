@@ -1,5 +1,5 @@
 import nc from 'next-connect';
-import { all } from '@middlewares/.';
+import all from '../../middlewares/index';
 
 const handler = nc();
 
