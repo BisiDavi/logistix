@@ -1,3 +1,3 @@
 export { displayLinks } from './functions';
-export { default as generateRandomNumber } from './randomNumber';
-export { randomImagesArray, generateRandomImages } from './randomNumber';
+export { default as generateRandomImages } from './randomNumber';
+export { randomImagesArray } from './randomNumber';
