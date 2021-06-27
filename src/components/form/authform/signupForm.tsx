@@ -39,7 +39,8 @@ const SignupForm = () => {
         return signIn('email', { userEmail })
             .then((response) => {
                 console.log('response', response);
-                return toast.success(
+
+                return response !== undefined && toast.success(
                     'Please verify the link sent to your email address',
                 );
             })
