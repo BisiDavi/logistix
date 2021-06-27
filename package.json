@@ -30,6 +30,7 @@
     "google-map-react": "^2.1.9",
     "graphql": "^15.5.0",
     "mongodb": "^3.6.9",
+    "nanoid": "^3.1.23",
     "next": "10.2.0",
     "next-auth": "^3.27.0",
     "next-connect": "^0.10.1",

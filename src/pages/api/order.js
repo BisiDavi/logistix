@@ -21,6 +21,8 @@ handler.post(async (req, res) => {
         deliveryMethod,
         state,
     });
+
+    res.status(200).json(order);
 });
 
 export default handler;
