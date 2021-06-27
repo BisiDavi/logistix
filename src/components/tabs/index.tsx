@@ -3,7 +3,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import DisplayTabs from './displayTab';
 import styles from './tabs.module.css';
 
-const AppTab: FC<AppTabProps> = ({ tabData }) => {
+export default function AppTab({ tabData }: AppTabProps) {
     const [key, setKey] = useState(tabData.defaultTab);
     return (
         <Tabs
@@ -12,14 +12,16 @@ const AppTab: FC<AppTabProps> = ({ tabData }) => {
             onSelect={(k) => setKey(k)}
             id={tabData.id}
         >
-            {tabData.content.map((tab, index) => (
-                <Tab key={index} eventKey={tab.eventKey} title={tab.title}>
-                    {DisplayTabs(tab.eventKey)}
-                </Tab>
-            ))}
+            {tabData.content.map(function (tab, index) {
+                return (
+                    <Tab key={index} eventKey={tab.eventKey} title={tab.title}>
+                        {DisplayTabs(tab.eventKey)}
+                    </Tab>
+                );
+            })}
         </Tabs>
     );
-};
+}
 
 interface AppTabProps {
     tabData: {
@@ -28,5 +30,3 @@ interface AppTabProps {
         content: { eventKey: string; title: string }[];
     };
 }
-
-export default AppTab;

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { Logo } from '@components/icons';
 import { displayLinks } from '@utils/.';
 import { menuLinks, policies, socialIcons } from './footerContent';
 import styles from '@/styles/footer.module.css';
 
-const DesktopFooter = () => {
+export default function DesktopFooter() {
     return (
-        <>
+        <Fragment>
             <Row>
                 <Col xs={6}>
                     <Logo />
@@ -27,8 +27,6 @@ const DesktopFooter = () => {
                     </div>
                 </Col>
             </Row>
-        </>
+        </Fragment>
     );
-};
-
-export default DesktopFooter;
+}

@@ -4,7 +4,7 @@ import { displayLinks } from '@utils/functions';
 import { Button } from '..';
 import styles from '@styles/sidebar.module.css';
 
-const Sidebar: FC<SidebarProps> = ({ onClose }) => {
+export default function Sidebar({ onClose }: SidebarProps) {
     const sidebarLinks = [
         { name: 'Become a Rider', link: '#becomeRider' },
         { name: 'Market Place', link: '#marketPlace' },
@@ -22,10 +22,8 @@ const Sidebar: FC<SidebarProps> = ({ onClose }) => {
             </Row>
         </Container>
     );
-};
+}
 
 interface SidebarProps {
     onClose: () => void;
 }
-
-export default Sidebar;

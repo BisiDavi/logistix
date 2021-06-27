@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { PageTitle, TextAnimate, ImageSlider } from '@components/.';
-import { ToastContainer } from 'react-toastify';
 import Section from '@components/text/section';
 import EmailModal from '@components/modal/EmailModal';
 import 'react-toastify/dist/ReactToastify.css';
-import { connectToDatabase } from 'src/middlewares/database';
+import { connectToDatabase } from '@middlewares/database';
 
-const Home = ({ isConnected }) => {
+export default function Home({ isConnected }) {
     const [data, setData] = useState(null);
     const [user, setUser] = useState({
         showEmail: false,
@@ -14,8 +13,8 @@ const Home = ({ isConnected }) => {
         details: null,
     });
 
-		const fetchData = async () => {
-        await fetch('/api/core-values', {
+    async function fetchData() {
+        return await fetch('/api/core-values', {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -23,14 +22,14 @@ const Home = ({ isConnected }) => {
         })
             .then((res) => res.json())
             .then((d) => setData(d));
-    };
+    }
 
-    const closeEmailModal = () =>
-        setUser({
+    function closeEmailModal() {
+        return setUser({
             ...user,
             showEmail: false,
         });
-
+    }
     isConnected && console.log('You are connected to mongoDB');
 
     useEffect(() => {
@@ -38,7 +37,7 @@ const Home = ({ isConnected }) => {
     }, []);
 
     return (
-        <>
+        <Fragment>
             <PageTitle title='Get your products delivered just in time.' />
             <section>
                 <TextAnimate />
@@ -48,7 +47,6 @@ const Home = ({ isConnected }) => {
                     setEmail={setUser}
                     onHide={closeEmailModal}
                 />
-                <ToastContainer />
             </section>
             <Section data={data} />
             <style jsx>
@@ -71,9 +69,9 @@ const Home = ({ isConnected }) => {
                     }
                 `}
             </style>
-        </>
+        </Fragment>
     );
-};
+}
 
 export async function getServerSideProps() {
     const { client } = await connectToDatabase();
@@ -85,5 +83,3 @@ export async function getServerSideProps() {
         },
     };
 }
-
-export default Home;

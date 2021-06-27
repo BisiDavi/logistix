@@ -1,15 +1,19 @@
-import React, { FC, useState } from 'react';
+import React, { Fragment, PropsWithChildren, useState } from 'react';
 import { Nav, Footer, Sidebar, AuthModal } from '@components/.';
 import { useToggle } from '@hooks/.';
 
-const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
+export default function Pagelayout({
+    children,
+}: PropsWithChildren<PageLayoutProps>): JSX.Element {
     const { toggle, toggled } = useToggle();
     const [userSignup, setSignup] = useState<boolean>(false);
 
-    const authHandler = () => setSignup(!userSignup);
+    function authHandler() {
+        return setSignup(!userSignup);
+    }
 
     return (
-        <>
+        <Fragment>
             <header>
                 <Nav toggleAuth={authHandler} onOpen={() => toggled(true)} />
             </header>
@@ -27,11 +31,9 @@ const Pagelayout: FC<PageLayoutProps> = ({ children }): JSX.Element => {
                     }
                 `}
             </style>
-        </>
+        </Fragment>
     );
-};
-
-export default Pagelayout;
+}
 
 interface PageLayoutProps {
     children: JSX.Element;

@@ -3,13 +3,13 @@ import { Modal } from 'react-bootstrap';
 import { Logo } from '@components/icons';
 import styles from './modal.module.css';
 
-const AppModal: FC<PropsWithChildren<AppModalProps>> = ({
+export default function AppModal({
     show,
     onHide,
     children,
     className,
     header,
-}) => {
+}: PropsWithChildren<AppModalProps>) {
     return (
         <Modal contentClassName={className} show={show} onHide={onHide}>
             <Modal.Header className={styles.modalHeader} closeButton>
@@ -18,7 +18,7 @@ const AppModal: FC<PropsWithChildren<AppModalProps>> = ({
             <Modal.Body>{children}</Modal.Body>
         </Modal>
     );
-};
+}
 
 interface AppModalProps {
     show: boolean;
@@ -26,5 +26,3 @@ interface AppModalProps {
     className?: string;
     header?: boolean;
 }
-
-export default AppModal;

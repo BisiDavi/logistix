@@ -2,16 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import { linksInterface } from '@components/footer/footerContent';
 
-export const displayLinks = (links: linksInterface[]) => {
+export function displayLinks(links: linksInterface[]) {
     return (
         <ul>
-            {links.map((menu, index) => (
-                <li key={index}>
-                    <Link href={menu.link} passHref>
-                        <a>{menu.name}</a>
-                    </Link>
-                </li>
-            ))}
+            {links.map(function (menu, index) {
+                return (
+                    <li key={index}>
+                        <Link href={menu.link} passHref>
+                            <a>{menu.name}</a>
+                        </Link>
+                    </li>
+                );
+            })}
         </ul>
     );
-};
+}

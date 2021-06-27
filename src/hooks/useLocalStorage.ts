@@ -1,17 +1,17 @@
 import React from 'react';
 
-const useLocalStorage = () => {
-    const setLocalStorage = (name, data) => {
-        localStorage.setItem(name, JSON.stringify(data));
-    };
-    const getLocalStorage = (name) => {
+export default function useLocalStorage() {
+    function setLocalStorage(name, data) {
+        return localStorage.setItem(name, JSON.stringify(data));
+    }
+    function getLocalStorage(name) {
         const getLocalStorage = localStorage.getItem(name);
         return JSON.parse(getLocalStorage);
-    };
+    }
 
-    const removeLocalStorage = (name) => localStorage.removeItem(name);
+    function removeLocalStorage(name) {
+        return localStorage.removeItem(name);
+    }
 
     return { setLocalStorage, getLocalStorage, removeLocalStorage };
-};
-
-export default useLocalStorage;
+}

@@ -12,16 +12,17 @@ import MapModal from '@components/modal/MapModal';
 import { ToggleModalAction } from '@store/actions';
 import { useRedux } from '@hooks/.';
 
-const DeliveryForm = () => {
+export default function DeliveryForm() {
     const [showMap, setShowMap] = useState(false);
-    const [showDeliveryMethodModal, setShowDeliveryMethodModal] = useState(
-        false,
-    );
     const { dispatch, selectState } = useRedux();
     const modal = selectState('modal');
 
-    const openModal = () => dispatch(ToggleModalAction(true));
-    const closeModal = () => dispatch(ToggleModalAction(false));
+    function openModal() {
+        return dispatch(ToggleModalAction(true));
+    }
+    function closeModal() {
+        return dispatch(ToggleModalAction(false));
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -32,10 +33,9 @@ const DeliveryForm = () => {
             state: '',
         },
         validationSchema: DeliverySchema,
-        onSubmit: (values) => {
+        onSubmit: function (values) {
             console.log('values', values);
             toast.success('Order Received, thanks for using logistix');
-            //openModal();
         },
     });
 
@@ -45,12 +45,14 @@ const DeliveryForm = () => {
         type: 'text',
     };
 
-    const submitHandler = (e) => {
+    function submitHandler(e) {
         e.preventDefault();
-        formik.handleSubmit();
-    };
+        return formik.handleSubmit();
+    }
 
-    const displayModal = (value: boolean) => setShowMap(value);
+    function displayModal(value: boolean) {
+        return setShowMap(value);
+    }
 
     return (
         <div className='delivery-form position-relative'>
@@ -112,6 +114,4 @@ const DeliveryForm = () => {
             </style>
         </div>
     );
-};
-
-export default DeliveryForm;
+}

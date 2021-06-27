@@ -5,19 +5,24 @@ import { Provider as AuthProvider } from 'next-auth/client';
 import { Provider } from 'react-redux';
 import NProgress from 'nprogress';
 import { Loading } from '@components/.';
-import FirebaseProvider from '@firebase/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Pagelayout } from '@layout/.';
 import store from '@store/.';
 import '@styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on('routeChangeStart', function () {
+    NProgress.start();
+});
+Router.events.on('routeChangeComplete', function () {
+    NProgress.done();
+});
+Router.events.on('routeChangeError', function () {
+    NProgress.done();
+});
 
-function MyApp({ Component, pageProps }) {
-    useEffect(() => {
+export default function MyApp({ Component, pageProps }) {
+    useEffect(function () {
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side');
         if (jssStyles) {
@@ -26,15 +31,15 @@ function MyApp({ Component, pageProps }) {
     }, []);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const start = () => {
-            setLoading(true);
-        };
-        const end = () => {
-            setTimeout(() => {
+    useEffect(function () {
+        function start() {
+            return setLoading(true);
+        }
+        function end() {
+            return setTimeout(() => {
                 setLoading(false);
             }, 1200);
-        };
+        }
         Router.events.on('routeChangeStart', start);
         Router.events.on('routeChangeComplete', end);
         Router.events.on('routeChangeError', end);
@@ -88,7 +93,6 @@ function MyApp({ Component, pageProps }) {
                 </Head>
                 {loading && <Loading />}
                 <CssBaseline />
-
                 <Provider store={store}>
                     <Pagelayout>
                         <Component {...pageProps} />
@@ -98,5 +102,3 @@ function MyApp({ Component, pageProps }) {
         </AuthProvider>
     );
 }
-
-export default MyApp;

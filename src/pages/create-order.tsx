@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { Loading, PageTitle } from '@components/.';
+import { PageTitle } from '@components/.';
 import DeliveryForm from '@components/form/deliveryForm';
-import { useRedux } from '@hooks/.';
 
-const CreateOrder = () => {
-
-
+export default function CreateOrder() {
     return (
-        <>
+        <Fragment>
             <PageTitle title='create order' />
             <ToastContainer />
             <DeliveryForm />
-        </>
+        </Fragment>
     );
-};
-
-export default CreateOrder;
+}

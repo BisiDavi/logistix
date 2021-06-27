@@ -2,9 +2,15 @@ import React, { FC, useState } from 'react';
 import { Profilecard, ParcelStatus } from '@styles/.';
 import { Button } from '@components/.';
 
-const ProfileCard: FC<ProfileCardProps> = ({ content, shouldTrack }) => {
+export default function ProfileCard({
+    content,
+    shouldTrack,
+}: ProfileCardProps) {
     const [showContent, setShowContent] = useState(false);
-    const displayContent = () => setShowContent(!showContent);
+
+    function displayContent() {
+        return setShowContent(!showContent);
+    }
     return (
         <>
             <Profilecard>
@@ -40,7 +46,7 @@ const ProfileCard: FC<ProfileCardProps> = ({ content, shouldTrack }) => {
             </Profilecard>
         </>
     );
-};
+}
 
 type profileType = {
     time: string;
@@ -55,5 +61,3 @@ interface ProfileCardProps {
     content: profileType;
     shouldTrack?: boolean;
 }
-
-export default ProfileCard;

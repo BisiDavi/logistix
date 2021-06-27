@@ -1,12 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
 
-const PageTitle = ({ title }) => {
+export default function PageTitle({ title }) {
     return (
         <Head>
             <title>Logistics | {title}</title>
         </Head>
     );
-};
-
-export default PageTitle;
+}

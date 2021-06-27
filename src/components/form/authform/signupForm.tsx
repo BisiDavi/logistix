@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { Fragment } from 'react';
 import { useFormik } from 'formik';
 import { signIn } from 'next-auth/client';
 import { Form } from 'react-bootstrap';
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { ToggleModalAction } from '@store/actions';
 import useRedux from '@hooks/useRedux';
 import { displayFormFields } from '../fieldType';
@@ -12,7 +12,7 @@ import { SignupSchema } from './authSchema';
 import styles from './authform.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-const SignupForm = () => {
+export default function SignupForm() {
     const { dispatch } = useRedux();
 
     const formik = useFormik({
@@ -24,34 +24,36 @@ const SignupForm = () => {
             location: '',
         },
         validationSchema: SignupSchema,
-        onSubmit: (values) => {
-            signInHandler(values.email);
+        onSubmit: function (values) {
+            return signInHandler(values.email);
         },
     });
 
-    const submitHandler = (e) => {
+    function submitHandler(e) {
         e.preventDefault();
         formik.handleSubmit();
         console.log('I was clicked');
         dispatch(ToggleModalAction(false));
-    };
+    }
 
-    const signInHandler = (userEmail) => {
+    function signInHandler(userEmail) {
         console.log('userEmail', userEmail);
         return signIn('email', { email: userEmail })
-            .then(() =>
-                toast.success(
+            .then(function () {
+                return toast.success(
                     'Please verify the link sent to your email address',
-                ),
-            )
-            .catch((error) => {
+                );
+            })
+            .catch(function (error) {
                 console.log('signup error', error);
-                toast.error('An error occured please try again, Thanks. ');
+                return toast.error(
+                    'An error occured please try again, Thanks. ',
+                );
             });
-    };
+    }
 
     return (
-        <>
+        <Fragment>
             <Form
                 method='post'
                 action='/api/auth/signin/email'
@@ -61,8 +63,6 @@ const SignupForm = () => {
                 {displayFormFields(signupFieldArray, formik)}
                 <Button type='submit' text='Signup' />;
             </Form>
-        </>
+        </Fragment>
     );
-};
-
-export default SignupForm;
+}

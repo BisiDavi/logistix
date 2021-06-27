@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageTitle } from '@components/.';
 
-const Marketplace = () => {
+export default function Marketplace() {
     return (
         <div className='marketplace'>
             <PageTitle title='Market place' />
@@ -15,6 +15,4 @@ const Marketplace = () => {
             </style>
         </div>
     );
-};
-
-export default Marketplace;
+}

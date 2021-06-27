@@ -8,22 +8,19 @@ import { loginFieldArray } from './authFields';
 import styles from './authform.module.css';
 import { LoginSchema } from './authSchema';
 
-const LoginForm = () => {
-    const { dispatch } = useRedux();
-
+export default function LoginForm() {
     const formik = useFormik({
         initialValues: {
             userEmail: '',
-            //userPassword: '',
         },
         validationSchema: LoginSchema,
-        onSubmit: (values) => {
+        onSubmit: function (values) {
             console.log('login values', values);
         },
     });
-    const submitHandler = (e) => {
+    const submitHandler = function (e) {
         e.preventDefault();
-        formik.handleSubmit();
+        return formik.handleSubmit();
     };
     return (
         <Form onSubmit={submitHandler} className={styles.form}>
@@ -31,6 +28,4 @@ const LoginForm = () => {
             <Button type='submit' text='Login' />
         </Form>
     );
-};
-
-export default LoginForm;
+}

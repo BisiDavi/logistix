@@ -2,14 +2,12 @@ import React from 'react';
 import { ActiveShipmentTab } from './profileData';
 import ProfileCard from './ProfileCard';
 
-const ActiveShipment = () => {
+export default function ActiveShipment() {
     return (
         <div className='activeShipment'>
-            {ActiveShipmentTab.map((data, index) => (
-                <ProfileCard content={data} key={index} shouldTrack />
-            ))}
+            {ActiveShipmentTab.map(function (data, index) {
+                return <ProfileCard content={data} key={index} shouldTrack />;
+            })}
         </div>
     );
-};
-
-export default ActiveShipment;
+}

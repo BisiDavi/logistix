@@ -2,7 +2,7 @@ import React from 'react';
 import TextLoop from 'react-text-loop';
 import styles from '@styles/textAnimate.module.css';
 
-const TextAnimate = () => {
+export default function TextAnimate() {
     const textArray = ['Quick ', 'Safe ', 'Cheap '];
 
     return (
@@ -13,9 +13,9 @@ const TextAnimate = () => {
                 adjustingSpeed={500}
                 className={styles.animated}
             >
-                {textArray.map((text, index) => (
-                    <h3 key={index}>{text}</h3>
-                ))}
+                {textArray.map(function (text, index) {
+                    return <h3 key={index}>{text}</h3>;
+                })}
             </TextLoop>
 
             <h3 className='mx-2'>
@@ -31,6 +31,4 @@ const TextAnimate = () => {
             </style>
         </div>
     );
-};
-
-export default TextAnimate;
+}

@@ -29,7 +29,7 @@ export async function connectToDatabase() {
         cached.promise = MongoClient.connect(
             NEXT_PUBLIC_DATABASE_URL,
             options,
-        ).then((client) => {
+        ).then(function (client) {
             return {
                 client,
                 db: client.db(NEXT_PUBLIC_DATABASE),

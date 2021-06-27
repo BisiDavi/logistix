@@ -3,8 +3,12 @@ import { usePlacesWidget } from 'react-google-autocomplete';
 import { Form, InputGroup } from 'react-bootstrap';
 import styles from '@styles/form.module.css';
 
-const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formik, displayModal, index }) => {
-
+export default function PlacesAutocompleteInput({
+    field,
+    formik,
+    displayModal,
+    index,
+}: PlacesAutocompleteInputProps) {
     const { ref } = usePlacesWidget({
         apiKey: process.env.NEXT_PUBLIC_APIKEY,
         options: {
@@ -13,15 +17,15 @@ const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formi
             locationBias: { lat: 6.5244, lng: 3.3792 },
             componentRestrictions: { country: 'ng' },
         },
-        onPlaceSelected: (place) => {
-            formik.setFieldValue(field.name, place.formatted_address);
+        onPlaceSelected: function (place) {
+            return formik.setFieldValue(field.name, place.formatted_address);
         },
     });
     return (
-        <InputGroup className="my-2" key={index}>
+        <InputGroup className='my-2' key={index}>
             <InputGroup.Prepend className={styles.prepend}>
                 <InputGroup.Text onClick={displayModal} className={styles.text}>
-                    <img src="/mapIcon.png" alt="map icon" />
+                    <img src='/mapIcon.png' alt='map icon' />
                 </InputGroup.Text>
             </InputGroup.Prepend>
             <Form.Group className={styles.formGroup}>
@@ -47,14 +51,11 @@ const PlacesAutocompleteInput:FC<PlacesAutocompleteInputProps> = ({ field, formi
             </Form.Group>
         </InputGroup>
     );
-};
-
-
-interface PlacesAutocompleteInputProps {
-	field: any;
-	formik: any;
-	displayModal?: () => void;
-	index?:number
 }
 
-export default PlacesAutocompleteInput;
+interface PlacesAutocompleteInputProps {
+    field: any;
+    formik: any;
+    displayModal?: () => void;
+    index?: number;
+}

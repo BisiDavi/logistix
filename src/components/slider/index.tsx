@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Image from 'next/image';
 import Slider from 'react-slick';
 import styles from './slider.module.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ImageSlider = () => {
+export default function ImageSlider() {
     const settings = {
         dots: true,
         infinite: true,
@@ -21,19 +21,21 @@ const ImageSlider = () => {
         '/deliveryBoy.jpg',
     ];
     return (
-        <>
+        <Fragment>
             <Slider className={styles.Slider} {...settings}>
-                {imageArray.map((image, index) => (
-                    <div className='imageHolder' key={index}>
-                        <Image
-                            height={250}
-                            width={300}
-                            layout='responsive'
-                            src={image}
-                            alt='logistix banner'
-                        />
-                    </div>
-                ))}
+                {imageArray.map(function (image, index) {
+                    return (
+                        <div className='imageHolder' key={index}>
+                            <Image
+                                height={250}
+                                width={300}
+                                layout='responsive'
+                                src={image}
+                                alt='logistix banner'
+                            />
+                        </div>
+                    );
+                })}
             </Slider>
             <style jsx>
                 {`
@@ -43,8 +45,6 @@ const ImageSlider = () => {
                     }
                 `}
             </style>
-        </>
+        </Fragment>
     );
-};
-
-export default ImageSlider;
+}

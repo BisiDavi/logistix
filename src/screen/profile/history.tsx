@@ -2,14 +2,12 @@ import React from 'react';
 import { HistoryTab } from './profileData';
 import ProfileCard from './ProfileCard';
 
-const History = () => {
+export default function History() {
     return (
         <div className='history'>
-            {HistoryTab.map((data, index) => (
-                <ProfileCard content={data} key={index} />
-            ))}
+            {HistoryTab.map(function (data, index) {
+                return <ProfileCard content={data} key={index} />;
+            })}
         </div>
     );
-};
-
-export default History;
+}

@@ -2,12 +2,10 @@ import React from 'react';
 import { ProfileTab } from './profileData';
 import { AppTab } from '@components/.';
 
-const ProfileScreen = () => {
+export default function ProfileScreen() {
     return (
         <div>
             <AppTab tabData={ProfileTab} />
         </div>
     );
-};
-
-export default ProfileScreen;
+}

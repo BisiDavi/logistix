@@ -1,7 +1,5 @@
 import data from '@json/homepage.json';
 
-const handler = (req, res) => {
-    res.status(200).json(data);
-};
-
-export default handler;
+export default function handler(req, res) {
+    return res.status(200).json(data);
+}

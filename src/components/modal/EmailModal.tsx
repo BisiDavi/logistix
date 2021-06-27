@@ -3,20 +3,20 @@ import { toast } from 'react-toastify';
 import StaticModal from './StaticModal';
 import styles from './modal.module.css';
 
-const EmailModal = ({ onHide, user, setEmail }) => {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        setEmail({
+export default function EmailModal({ onHide, user, setEmail }) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
+        return setEmail({
             ...user,
             confirmationEmail: e.target.value,
         });
-    };
+    }
 
-    const submitHandler = (e): void => {
+    function submitHandler(e): void {
         e.preventDefault();
         user.confirmationEmail.length > 5 &&
             toast.success('Email sent, expect email confirmation link sent');
-        onHide();
-    };
+        return onHide();
+    }
     return (
         <StaticModal
             className={styles.AppModal}
@@ -77,6 +77,4 @@ const EmailModal = ({ onHide, user, setEmail }) => {
             </div>
         </StaticModal>
     );
-};
-
-export default EmailModal;
+}

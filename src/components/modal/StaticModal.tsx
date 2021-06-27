@@ -3,13 +3,13 @@ import { Modal } from 'react-bootstrap';
 import { Logo } from '@components/icons';
 import styles from './modal.module.css';
 
-const StaticModal: FC<PropsWithChildren<StaticModalProps>> = ({
+export default function StaticModal({
     show,
     onHide,
     children,
     className,
     header,
-}) => {
+}: PropsWithChildren<StaticModalProps>) {
     return (
         <Modal
             contentClassName={className}
@@ -24,7 +24,7 @@ const StaticModal: FC<PropsWithChildren<StaticModalProps>> = ({
             <Modal.Body>{children}</Modal.Body>
         </Modal>
     );
-};
+}
 
 interface StaticModalProps {
     show: boolean;
@@ -32,5 +32,3 @@ interface StaticModalProps {
     className: string;
     header?: boolean;
 }
-
-export default StaticModal;

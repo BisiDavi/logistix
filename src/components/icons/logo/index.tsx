@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Logo = () => {
+export default function Logo() {
     return (
         <div className='logo'>
             <Link href='/' passHref>
@@ -17,6 +17,4 @@ const Logo = () => {
             `}</style>
         </div>
     );
-};
-
-export default Logo;
+}

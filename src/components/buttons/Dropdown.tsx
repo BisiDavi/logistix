@@ -1,24 +1,28 @@
-import React, { FC, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
-const Dropdown: FC<DropdownProps> = ({ data }) => {
+export default function Dropdown({ data }: DropdownProps) {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const ifActive = showDropdown ? '+' : '-';
     const dropdownStyle = showDropdown ? 'block' : 'none';
 
-    const displayDropdown = () => setShowDropdown(!showDropdown);
+    function displayDropdown() {
+        return setShowDropdown(!showDropdown);
+    }
     return (
-        <>
+        <Fragment>
             <ul onClick={displayDropdown} className='dropdown'>
                 <div className='text'>
                     <h3>{data.text}</h3>
                     <span>{ifActive}</span>
                 </div>
-                {data.dropdown.map((item, index) => (
-                    <li key={index}>
-                        {item.text}:{item.value}
-                    </li>
-                ))}
+                {data.dropdown.map(function (item, index) {
+                    return (
+                        <li key={index}>
+                            {item.text}:{item.value}
+                        </li>
+                    );
+                })}
             </ul>
             <style jsx>
                 {`
@@ -67,9 +71,9 @@ const Dropdown: FC<DropdownProps> = ({ data }) => {
                     }
                 `}
             </style>
-        </>
+        </Fragment>
     );
-};
+}
 
 type dropdownType = {
     text: string;
@@ -82,5 +86,3 @@ interface DropdownProps {
         dropdown: dropdownType[];
     };
 }
-
-export default Dropdown;

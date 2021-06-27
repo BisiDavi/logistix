@@ -52,19 +52,19 @@ const menuIcons = [
     },
 ];
 
-const BottomMenu = () => {
+export default function BottomMenu() {
     const classes = useStyles();
     const [value, setValue] = useState(0);
     const router = useRouter();
 
-    useEffect(() => {
-        loadPage();
-        return () => {
+    useEffect(
+        function () {
             loadPage();
-        };
-    }, [value]);
+        },
+        [value],
+    );
 
-    const loadPage = () => {
+    function loadPage() {
         switch (value) {
             case 0:
                 return router.push('/');
@@ -77,12 +77,12 @@ const BottomMenu = () => {
             default:
                 return null;
         }
-    };
+    }
 
-    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
-        setValue(newValue);
+    function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
         console.log('newValue', newValue);
-    };
+        return setValue(newValue);
+    }
 
     return (
         <nav className={classes.footer}>
@@ -92,17 +92,17 @@ const BottomMenu = () => {
                 onChange={handleChange}
                 className={classes.root}
             >
-                {menuIcons.map((footerIcon, index) => (
-                    <BottomNavigationAction
-                        label={footerIcon.label}
-                        key={index}
-                        value={footerIcon.value}
-                        icon={footerIcon.icon}
-                    />
-                ))}
+                {menuIcons.map(function (footerIcon, index) {
+                    return (
+                        <BottomNavigationAction
+                            label={footerIcon.label}
+                            key={index}
+                            value={footerIcon.value}
+                            icon={footerIcon.icon}
+                        />
+                    );
+                })}
             </BottomNavigation>
         </nav>
     );
-};
-
-export default BottomMenu;
+}

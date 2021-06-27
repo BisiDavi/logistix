@@ -37,7 +37,7 @@ const useStyles = makeStyles({
     },
 });
 
-export const TextInput = ({ index, formik, field }) => {
+export function TextInput({ index, formik, field }) {
     return (
         <TextField
             id={field.name}
@@ -54,9 +54,9 @@ export const TextInput = ({ index, formik, field }) => {
             helperText={formik.touched[field.name] && formik.errors[field.name]}
         />
     );
-};
+}
 
-export const MUISelect = ({ index, formik, field }) => {
+export function MUISelect({ index, formik, field }) {
     return (
         <FormControl fullWidth>
             <InputLabel id={field.name}>{field.placeholder}</InputLabel>
@@ -71,20 +71,22 @@ export const MUISelect = ({ index, formik, field }) => {
                     Boolean(formik.errors[field.name])
                 }
             >
-                {field.options.map((item, index) => (
-                    <MenuItem value={item} key={index}>
-                        {item}
-                    </MenuItem>
-                ))}
+                {field.options.map(function (item, index) {
+                    return (
+                        <MenuItem value={item} key={index}>
+                            {item}
+                        </MenuItem>
+                    );
+                })}
             </Select>
             <FormHelperText>
                 {formik.touched[field.name] && formik.errors[field.name]}
             </FormHelperText>
         </FormControl>
     );
-};
+}
 
-export const MUIRadio = ({ index, formik, field }) => {
+export function MUIRadio({ index, formik, field }) {
     const classes = useStyles();
     return (
         <FormControl className={classes.formControl} component='fieldset'>
@@ -99,26 +101,33 @@ export const MUIRadio = ({ index, formik, field }) => {
                 name={field.name}
                 className={classes.radioGroup}
             >
-                {field.labels.map((item, index) => (
-                    <FormControlLabel
-                        value={item}
-                        control={<Radio />}
-                        label={item}
-                    />
-                ))}
+                {field.labels.map(function (item, index) {
+                    return (
+                        <FormControlLabel
+                            value={item}
+                            key={index}
+                            control={<Radio />}
+                            label={item}
+                        />
+                    );
+                })}
             </RadioGroup>
         </FormControl>
     );
-};
+}
 
-export const PasswordField = ({ index, formik, field  }) => {
+export function PasswordField({ index, formik, field }) {
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
-    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    function handleClickShowPassword() {
+        setShowPassword(!showPassword);
+    }
 
-    const handleMouseDownPassword = (
+    function handleMouseDownPassword(
         event: React.MouseEvent<HTMLButtonElement>,
-    ) => event.preventDefault();
+    ) {
+        return event.preventDefault();
+    }
 
     const inputType = showPassword ? 'text' : 'password';
 
@@ -153,4 +162,4 @@ export const PasswordField = ({ index, formik, field  }) => {
             </FormHelperText>
         </FormControl>
     );
-};
+}

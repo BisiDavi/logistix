@@ -37,15 +37,15 @@ const useStyles = makeStyles({
     },
 });
 
-const MUIFields = (formik, field) => {
+export default function MUIFields(formik, field) {
     const classes = useStyles();
 
-    const TextInput = ({ index }) => {
+    function TextInput({ index }) {
         return (
             <TextField
                 id={field.name}
-								fullWidth
-								key={index}
+                fullWidth
+                key={index}
                 value={formik.values[field.name]}
                 onChange={formik.handleChange}
                 name={field.name}
@@ -60,9 +60,9 @@ const MUIFields = (formik, field) => {
                 }
             />
         );
-    };
+    }
 
-    const MUISelect = ({ index }) => {
+    function MUISelect({ index }) {
         return (
             <FormControl fullWidth>
                 <InputLabel id={field.name}>{field.placeholder}</InputLabel>
@@ -77,22 +77,28 @@ const MUIFields = (formik, field) => {
                         Boolean(formik.errors[field.name])
                     }
                 >
-                    {field.options.map((item, index) => (
-                        <MenuItem value={item} key={index}>
-                            {item}
-                        </MenuItem>
-                    ))}
+                    {field.options.map(function (item, index) {
+                        return (
+                            <MenuItem value={item} key={index}>
+                                {item}
+                            </MenuItem>
+                        );
+                    })}
                 </Select>
                 <FormHelperText>
                     {formik.touched[field.name] && formik.errors[field.name]}
                 </FormHelperText>
             </FormControl>
         );
-    };
+    }
 
-    const MUIRadio = ({ index }) => {
+    function MUIRadio({ index }) {
         return (
-            <FormControl key={index} className={classes.formControl} component='fieldset'>
+            <FormControl
+                key={index}
+                className={classes.formControl}
+                component='fieldset'
+            >
                 <FormLabel className={classes.legend} component='legend'>
                     {field.name}
                 </FormLabel>
@@ -103,27 +109,33 @@ const MUIFields = (formik, field) => {
                     name={field.name}
                     className={classes.radioGroup}
                 >
-                    {field.labels.map((item, index) => (
-                        <FormControlLabel
-														key={index}
-                            value={item}
-                            control={<Radio />}
-                            label={item}
-                        />
-                    ))}
+                    {field.labels.map(function (item, index) {
+                        return (
+                            <FormControlLabel
+                                key={index}
+                                value={item}
+                                control={<Radio />}
+                                label={item}
+                            />
+                        );
+                    })}
                 </RadioGroup>
             </FormControl>
         );
-    };
+    }
 
-    const PasswordField = ({ index }) => {
+    function PasswordField({ index }) {
         const [showPassword, setShowPassword] = useState<boolean>(false);
 
-        const handleClickShowPassword = () => setShowPassword(!showPassword);
+        function handleClickShowPassword() {
+            return setShowPassword(!showPassword);
+        }
 
-        const handleMouseDownPassword = (
+        function handleMouseDownPassword(
             event: React.MouseEvent<HTMLButtonElement>,
-        ) => event.preventDefault();
+        ) {
+            return event.preventDefault();
+        }
 
         const inputType = showPassword ? 'text' : 'password';
 
@@ -164,7 +176,7 @@ const MUIFields = (formik, field) => {
                 </FormHelperText>
             </FormControl>
         );
-    };
+    }
 
     return {
         TextInput,
@@ -172,6 +184,4 @@ const MUIFields = (formik, field) => {
         MUIRadio,
         PasswordField,
     };
-};
-
-export default MUIFields;
+}

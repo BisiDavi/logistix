@@ -45,17 +45,13 @@ export const signupFieldArray = [
     //},
 ];
 
-export const loginFieldArray = [
-    {
-        name: 'userEmail',
-        type: 'email',
-        placeholder: 'Your email?',
-        field: 'text-input',
-    },
-    //{
-    //    name: 'userPassword',
-    //    type: 'password',
-    //    placeholder: 'Your password',
-    //    field: 'password',
-    //},
-];
+export function loginFieldArray() {
+    return [
+        {
+            name: 'userEmail',
+            type: 'email',
+            placeholder: 'Your email?',
+            field: 'text-input',
+        },
+    ];
+}

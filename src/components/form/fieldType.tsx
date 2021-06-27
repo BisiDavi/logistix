@@ -9,8 +9,7 @@ import {
 import PlacesAutocompleteInput from './fields/PlacesAutocompleteInput';
 import styles from '@styles/form.module.css';
 
-export const fieldType = (inputField, formik, index, displayModal) => {
-
+export function fieldType(inputField, formik, index, displayModal) {
     switch (inputField.field) {
         case 'input': {
             return <Input key={index} field={inputField} formik={formik} />;
@@ -51,29 +50,40 @@ export const fieldType = (inputField, formik, index, displayModal) => {
                 />
             );
         }
-				case 'autocomplete':{
-					return (
-						<span key={index} className={styles.prependInput}>
-							<PlacesAutocompleteInput
-								index={index}
-								key={index}
-								field={inputField}
-								formik={formik}
-								displayModal={() => displayModal(true)}
-							/>
-						</span>
-					)
-				}
+        case 'autocomplete': {
+            return (
+                <span key={index} className={styles.prependInput}>
+                    <PlacesAutocompleteInput
+                        index={index}
+                        key={index}
+                        field={inputField}
+                        formik={formik}
+                        displayModal={() => displayModal(true)}
+                    />
+                </span>
+            );
+        }
         case 'password': {
-            return <PasswordField index={index} key={index} formik={formik}
-						field={inputField} />;
+            return (
+                <PasswordField
+                    index={index}
+                    key={index}
+                    formik={formik}
+                    field={inputField}
+                />
+            );
         }
         default:
             return null;
     }
-};
+}
 
-export const displayFormFields = (formField:any, formik:any,
-	displayModal?:(value:boolean)=> void) =>
-    formField.map((field, index) => fieldType(field, formik, index, displayModal));
-
+export function displayFormFields(
+    formField: any,
+    formik: any,
+    displayModal?: (value: boolean) => void,
+) {
+    return formField.map(function (field, index) {
+        return fieldType(field, formik, index, displayModal);
+    });
+}

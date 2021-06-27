@@ -3,7 +3,7 @@ import { ProfileScreen, typeWords } from '@screen/.';
 import { useSession } from 'next-auth/client';
 import { TypewriterEffect } from '@components/.';
 
-const Profile = () => {
+export default function Profile() {
     const [session] = useSession();
     console.log('session', session);
     const userName = session ? session.user.name || session.user.email : '';
@@ -37,6 +37,4 @@ const Profile = () => {
             </style>
         </div>
     );
-};
-
-export default Profile;
+}

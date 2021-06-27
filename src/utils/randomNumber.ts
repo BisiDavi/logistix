@@ -1,7 +1,7 @@
-const generateRandomNumber = (number) => {
+function generateRandomNumber(number) {
     const randomNumber = Math.floor(Math.random() * number);
     return randomNumber;
-};
+}
 
 export const randomImagesArray = [
     '/dispatcher.jpg',
@@ -10,9 +10,7 @@ export const randomImagesArray = [
     '/deliveryTruck.webp',
 ];
 
-export const generateRandomImages = () => {
+export default function generateRandomImages() {
     const selectedImage = randomImagesArray[generateRandomNumber(4)];
     return selectedImage;
-};
-
-export default generateRandomNumber;
+}

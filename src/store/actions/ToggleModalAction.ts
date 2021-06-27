@@ -1,15 +1,17 @@
-import { TOGGLE_MODAL, TOGGLE_MODAL_ERROR } from '@store/constants'
+import { TOGGLE_MODAL, TOGGLE_MODAL_ERROR } from '@store/constants';
 
-export const ToggleModalAction = (payload) => dispatch => {
-	try{
-		dispatch({
-			type:TOGGLE_MODAL,
-			payload
-		})
-	}catch(error){
-		dispatch({
-			type:TOGGLE_MODAL_ERROR,
-			payload:error
-		})
-	}
+export function ToggleModalAction(payload) {
+    return function (dispatch) {
+        try {
+            dispatch({
+                type: TOGGLE_MODAL,
+                payload,
+            });
+        } catch (error) {
+            dispatch({
+                type: TOGGLE_MODAL_ERROR,
+                payload: error,
+            });
+        }
+    };
 }

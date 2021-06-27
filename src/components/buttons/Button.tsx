@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { Fragment } from 'react';
 
-const Button: FC<buttonProps> = ({ text, onClick, type }) => {
+export default function Button({ text, onClick, type }: buttonProps) {
     return (
-        <>
+        <Fragment>
             <button type={type} onClick={onClick}>
                 {text}
             </button>
@@ -17,14 +17,12 @@ const Button: FC<buttonProps> = ({ text, onClick, type }) => {
                     }
                 `}
             </style>
-        </>
+        </Fragment>
     );
-};
+}
 
 interface buttonProps {
     text: string;
     type?: 'button' | 'submit' | 'reset';
     onClick?: (e) => void;
 }
-
-export default Button;

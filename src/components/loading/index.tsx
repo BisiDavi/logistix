@@ -1,7 +1,7 @@
 //import { Logo } from '@components/icons';
 import React from 'react';
 
-const Loading = () => {
+export default function Loading() {
     return (
         <div className='loading'>
             <div className='d-flex m-auto full zoom'>
@@ -48,6 +48,4 @@ const Loading = () => {
             </style>
         </div>
     );
-};
-
-export default Loading;
+}

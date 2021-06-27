@@ -5,7 +5,7 @@ const handler = nc();
 
 handler.use(all);
 
-handler.post(async (req, res) => {
+export default handler.post(async function (req, res) {
     const {
         deliveryAddress,
         parcel,
@@ -22,7 +22,5 @@ handler.post(async (req, res) => {
         state,
     });
 
-    res.status(200).json(order);
+    return res.status(200).json(order);
 });
-
-export default handler;

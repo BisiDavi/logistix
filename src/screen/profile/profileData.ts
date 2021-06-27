@@ -1,7 +1,9 @@
-export const typeWords = (name) => [
-    `<h5>Welcome <span style="color:#c85a5f;;">${name}</span> </h5>`,
-    '<h5>Thanks for using <span style="color:#c85a5f;">Logistix</span></h5>',
-];
+export function typeWords(name) {
+    return [
+        `<h5>Welcome <span style="color:#c85a5f;;">${name}</span> </h5>`,
+        '<h5>Thanks for using <span style="color:#c85a5f;">Logistix</span></h5>',
+    ];
+}
 
 export const ProfileTab = {
     defaultTab: 'userTab',
@@ -123,7 +125,7 @@ export const userData = {
     sex: 'male',
 };
 
-export const nameInitials = (name) => {
+export function nameInitials(name) {
     const nameArray = name.split(' ');
     const firstName = nameArray[0];
     const lastName = nameArray[1];
@@ -131,4 +133,4 @@ export const nameInitials = (name) => {
     const firstLetterLastName = lastName.split('')[0];
     const initials = `${firstLetterFirstName} ${firstLetterLastName}`;
     return initials;
-};
+}

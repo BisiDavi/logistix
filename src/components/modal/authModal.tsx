@@ -8,25 +8,27 @@ import StaticModal from './StaticModal';
 import styles from './modal.module.css';
 import { Authmodal } from '@styles/.';
 
-const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
+export default function AuthModal({ show, onHide }: AuthModalProps) {
     const tabData = {
         id: 'authModalTab',
         defaultTab: 'signup',
         content: [{ eventKey: 'signup', title: 'Signup' }],
     };
-    const signInHandler = (name: string): any =>
-        signIn(name)
-            .then(() =>
-                toast.success(
+    function signInHandler(name: string): any {
+        return signIn(name)
+            .then(function () {
+                return toast.success(
                     `wait, you'll be redirected to ${name}, for authentication`,
-                ),
-            )
-            .catch(() => toast.error('An error occured, please try again'));
+                );
+            })
+            .catch(function () {
+                return toast.error('An error occured, please try again');
+            });
+    }
     const router = useRouter();
-    router.pathname.includes('&error=OAuthAccountNotLinked');
 
-    useEffect(() => {
-        if (router.pathname.includes('&error=OAuthAccountNotLinked')) {
+    useEffect(function () {
+        if (router.pathname.includes('&error')) {
             toast.error(
                 'That email is already in our database, please use email method to sign in',
             );
@@ -60,9 +62,8 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
             </Authmodal>
         </StaticModal>
     );
-};
+}
 interface AuthModalProps {
     show: boolean;
     onHide: () => void;
 }
-export default AuthModal;

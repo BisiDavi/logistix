@@ -3,24 +3,24 @@ import { toast } from 'react-toastify';
 import { FirebaseContext } from './firebase';
 import 'firebase/auth';
 
-const FirebaseAuth = () => {
+function FirebaseAuth() {
     const firebaseContext = useContext(FirebaseContext);
     const firebaseAuth = firebaseContext.auth();
 
-    const handleError = (error) => {
-        toast.error('An error just occured ' + error.message);
+    function handleError(error) {
         console.log(error);
-    };
+        return toast.error('An error just occured ' + error.message);
+    }
 
-    const handleSignOut = () => {
+    function handleSignOut() {
         if (firebaseAuth.currentUser) {
-            firebaseAuth.signOut().catch((error) => {
-                handleError(error);
+            firebaseAuth.signOut().catch(function (error) {
+                return handleError(error);
             });
         }
-    };
+    }
 
-    const withEmailLinkSignIn = (email) => {
+    function withEmailLinkSignIn(email) {
         let actionCodeSettings = {
             url: 'logistix.vercel.app',
             handleCodeInApp: true,
@@ -28,20 +28,20 @@ const FirebaseAuth = () => {
 
         firebaseAuth
             .sendSignInLinkToEmail(email, actionCodeSettings)
-            .then(() => {
+            .then(function () {
                 localStorage.setItem('emailForSignIn', email);
-                toast.success(
+                return toast.success(
                     'An email was sent to ' +
                         email +
                         '. Please use the link in the email to sign-in',
                 );
             })
-            .catch((error) => {
-                handleError(error);
+            .catch(function (error) {
+                return handleError(error);
             });
-    };
+    }
 
-    const handleSignIn = (user, setUser) => {
+    function handleSignIn(user, setUser) {
         if (firebaseAuth.isSignInWithEmailLink(window.location.href)) {
             let email = window.localStorage.getItem('emailForSignIn');
             if (!email) {
@@ -54,7 +54,7 @@ const FirebaseAuth = () => {
             if (email) {
                 firebaseAuth
                     .signInWithEmailLink(email, window.location.href)
-                    .then((result) => {
+                    .then(function (result) {
                         if (history && history.replaceState) {
                             window.history.replaceState(
                                 {},
@@ -74,18 +74,18 @@ const FirebaseAuth = () => {
                             console.log('isNewUser', isNewUser);
                         }
                     })
-                    .catch((error) => {
-                        handleError(error);
+                    .catch(function (error) {
+                        return handleError(error);
                     });
             }
         }
-    };
+    }
 
     return {
         withEmailLinkSignIn,
         handleSignOut,
         handleSignIn,
     };
-};
+}
 
 export default FirebaseAuth;

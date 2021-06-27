@@ -5,13 +5,13 @@ import { Hamburger, Logo } from '@components/icons';
 import { Button, Loading } from '@components/.';
 import styles from '../../styles/nav.module.css';
 
-const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
+export default function Nav({ onOpen, toggleAuth }: NavProps) {
     const [session, loading] = useSession();
 
-    const signOutHandler = (e) => {
+    function signOutHandler(e) {
         e.preventDefault();
-        signOut();
-    };
+        return signOut();
+    }
     return (
         <Container as='nav' fluid className={`${styles.nav} p-3`}>
             <Row className='justify-content-between align-items-center'>
@@ -49,10 +49,8 @@ const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
             </style>
         </Container>
     );
-};
+}
 interface NavProps {
     onOpen: () => void;
     toggleAuth: () => void;
 }
-
-export default Nav;

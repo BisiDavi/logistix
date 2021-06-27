@@ -2,7 +2,7 @@ import React from 'react';
 import { LoginForm, SignupForm } from '@components/form';
 import { ActiveShipment, History, UserTab } from '@components/.';
 
-const DisplayTabs = (tabName: string) => {
+export default function DisplayTabs(tabName: string) {
     switch (tabName) {
         case 'login':
             return <LoginForm />;
@@ -18,6 +18,4 @@ const DisplayTabs = (tabName: string) => {
         default:
             return null;
     }
-};
-
-export default DisplayTabs;
+}

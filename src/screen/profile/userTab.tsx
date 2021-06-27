@@ -5,7 +5,7 @@ import { Dropdown } from '@components/buttons';
 import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
 import { userData, nameInitials } from './profileData';
 
-const UserTab = () => {
+export default function UserTab() {
     const [session] = useSession();
     const { name, phoneNumber, location } = userData;
     return (
@@ -78,6 +78,4 @@ const UserTab = () => {
             </style>
         </div>
     );
-};
-
-export default UserTab;
+}

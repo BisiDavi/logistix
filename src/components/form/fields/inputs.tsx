@@ -2,7 +2,7 @@ import { Form, Col, InputGroup } from 'react-bootstrap';
 import { FaMapMarker } from 'react-icons/fa';
 import styles from '@styles/form.module.css';
 
-export const Input = ({ field, formik }) => {
+export function Input({ field, formik }) {
     return (
         <Form.Group className={styles.formGroup}>
             <Form.Control
@@ -24,9 +24,9 @@ export const Input = ({ field, formik }) => {
             </Form.Control.Feedback>
         </Form.Group>
     );
-};
+}
 
-export const PrependInput = ({ icon, field, formik, inputRef }) => {
+export function PrependInput({ icon, field, formik, inputRef }) {
     return (
         <InputGroup>
             <InputGroup.Prepend className={styles.prepend}>
@@ -37,37 +37,43 @@ export const PrependInput = ({ icon, field, formik, inputRef }) => {
             <Input field={field} formik={formik} />
         </InputGroup>
     );
-};
+}
 
-const displayFormIcons = (icon) => {
+function displayFormIcons(icon) {
     switch (icon) {
         case 'map':
             return <FaMapMarker />;
         default:
             return null;
     }
-};
+}
 
-export const RadioButton = ({ field }) => {
+export function RadioButton({ field }) {
     return (
         <Form.Group className='d-flex radioButton'>
-            {field.labels.map((item, index) => (
-                <div key={index} className='mb-3'>
-                    <Form.Check type='radio' value={item} inline-label={item} />
-                </div>
-            ))}
+            {field.labels.map(function (item, index) {
+                return (
+                    <div key={index} className='mb-3'>
+                        <Form.Check
+                            type='radio'
+                            value={item}
+                            inline-label={item}
+                        />
+                    </div>
+                );
+            })}
         </Form.Group>
     );
-};
+}
 
-export const SelectInput = ({ field }) => {
+export function SelectInput({ field }) {
     return (
         <Form.Group as={Col} controlId={field.name}>
             <Form.Control as='select' defaultValue={field.placeholder}>
-                {field.options.map((item, index) => (
-                    <option key={index}>{item}</option>
-                ))}
+                {field.options.map(function (item, index) {
+                    return <option key={index}>{item}</option>;
+                })}
             </Form.Control>
         </Form.Group>
     );
-};
+}

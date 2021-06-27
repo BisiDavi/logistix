@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
+import React from 'react';
 import Typewriter from 'typewriter-effect';
 
-const TypewriterEffect = ({ words }) => {
+export default function TypewriterEffect({ words }) {
     return (
         <Typewriter
             options={{
@@ -11,6 +11,4 @@ const TypewriterEffect = ({ words }) => {
             }}
         />
     );
-};
-
-export default TypewriterEffect;
+}
