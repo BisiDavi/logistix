@@ -16,7 +16,7 @@ export default NextAuth({
             clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_SECRET,
         }),
     ],
-    database: process.env.DATABASE_URL,
+    database: process.env.NEXT_PUBLIC_DATABASE_URL,
     secret: process.env.NEXT_PUBLIC_SECRET,
     session: {
         jwt: true,

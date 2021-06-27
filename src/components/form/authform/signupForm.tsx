@@ -36,6 +36,7 @@ const SignupForm = () => {
     };
 
     const signInHandler = () => {
+        console.log('userEmail', userEmail);
         return (
             userEmail.length > 3 &&
             signIn('email', { userEmail })
@@ -52,7 +53,6 @@ const SignupForm = () => {
                 })
         );
     };
-
     return (
         <>
             <Form onSubmit={submitHandler} className={styles.form}>
