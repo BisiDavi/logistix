@@ -5,10 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import Section from '@components/text/section';
 import EmailModal from '@components/modal/EmailModal';
 import 'react-toastify/dist/ReactToastify.css';
-import { getProviders } from 'next-auth/client';
+import { connectToDatabase } from 'src/middlewares/database';
 
-const Home = ({ providers }) => {
-
+const Home = ({ isConnected }) => {
     const [data, setData] = useState(null);
     const [user, setUser] = useState({
         showEmail: false,
@@ -32,6 +31,8 @@ const Home = ({ providers }) => {
             ...user,
             showEmail: false,
         });
+
+    isConnected && console.log('You are connected to mongoDB');
 
     useEffect(() => {
         fetchData();
@@ -78,5 +79,16 @@ const Home = ({ providers }) => {
         </>
     );
 };
+
+export async function getServerSideProps() {
+    const { client } = await connectToDatabase();
+    const isConnected = await client.isConnected();
+
+    return {
+        props: {
+            isConnected,
+        },
+    };
+}
 
 export default Home;
