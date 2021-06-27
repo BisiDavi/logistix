@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import { signIn } from 'next-auth/client';
 import { Form } from 'react-bootstrap';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { ToggleModalAction } from '@store/actions';
-import FirebaseAuth from '@firebase/auth';
 import useRedux from '@hooks/useRedux';
 import { displayFormFields } from '../fieldType';
 import { signupFieldArray } from './authFields';
@@ -15,13 +15,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const SignupForm = () => {
     const { dispatch } = useRedux();
     const [userEmail, setUserEmail] = useState('');
-    const { withEmailLinkSignIn } = FirebaseAuth();
-
-    useEffect(() => {
-        if (userEmail.length > 3) {
-            withEmailLinkSignIn(userEmail);
-        }
-    }, [userEmail]);
 
     const formik = useFormik({
         initialValues: {
@@ -42,13 +35,30 @@ const SignupForm = () => {
         dispatch(ToggleModalAction(false));
     };
 
+    const signInHandler = () => {
+        return (
+            userEmail.length > 3 &&
+            signIn('email', { userEmail })
+                .then(
+                    (response) =>
+                        response.ok &&
+                        toast.success(
+                            'Please verify the link sent to your email address',
+                        ),
+                )
+                .catch((error) => {
+                    console.log('signup error', error);
+                    toast.error('An error occured please try again, Thanks. ');
+                })
+        );
+    };
+
     return (
         <>
             <Form onSubmit={submitHandler} className={styles.form}>
                 {displayFormFields(signupFieldArray, formik)}
-                <Button type='submit' text='Signup' />
+                <Button type='submit' onClick={signInHandler} text='Signup' />;
             </Form>
-            <ToastContainer />
         </>
     );
 };

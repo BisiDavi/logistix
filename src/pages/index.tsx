@@ -5,8 +5,10 @@ import { ToastContainer } from 'react-toastify';
 import Section from '@components/text/section';
 import EmailModal from '@components/modal/EmailModal';
 import 'react-toastify/dist/ReactToastify.css';
+import { getProviders } from 'next-auth/client';
 
-const Home = () => {
+const Home = ({ providers }) => {
+
     const [data, setData] = useState(null);
     const [user, setUser] = useState({
         showEmail: false,

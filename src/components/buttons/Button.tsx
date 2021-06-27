@@ -9,11 +9,11 @@ const Button: FC<buttonProps> = ({ text, onClick, type }) => {
             <style jsx>
                 {`
                     button {
-											background-color: #c85a5f;
-											color: white;
-											padding: 5px 10px;
-											border-radius: 20px;
-											border: none;
+                        background-color: #c85a5f;
+                        color: white;
+                        padding: 5px 10px;
+                        border-radius: 20px;
+                        border: none;
                     }
                 `}
             </style>
@@ -24,7 +24,7 @@ const Button: FC<buttonProps> = ({ text, onClick, type }) => {
 interface buttonProps {
     text: string;
     type?: 'button' | 'submit' | 'reset';
-    onClick?: () => void;
+    onClick?: (e) => void;
 }
 
 export default Button;
