@@ -14,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const SignupForm = () => {
     const { dispatch } = useRedux();
-    const [userEmail, setUserEmail] = useState('');
 
     const formik = useFormik({
         initialValues: {
@@ -24,7 +23,7 @@ const SignupForm = () => {
         },
         validationSchema: SignupSchema,
         onSubmit: (values) => {
-            setUserEmail(values.email);
+            signInHandler(values.email);
         },
     });
 
@@ -35,29 +34,27 @@ const SignupForm = () => {
         dispatch(ToggleModalAction(false));
     };
 
-    const signInHandler = () => {
+    const signInHandler = (userEmail) => {
         console.log('userEmail', userEmail);
-        return (
-            userEmail.length > 3 &&
-            signIn('email', { userEmail })
-                .then(
-                    (response) =>
-                        response.ok &&
-                        toast.success(
-                            'Please verify the link sent to your email address',
-                        ),
-                )
-                .catch((error) => {
-                    console.log('signup error', error);
-                    toast.error('An error occured please try again, Thanks. ');
-                })
-        );
+        return signIn('email', { userEmail })
+            .then(
+                (response) =>
+                    response.ok &&
+                    toast.success(
+                        'Please verify the link sent to your email address',
+                    ),
+            )
+            .catch((error) => {
+                console.log('signup error', error);
+                toast.error('An error occured please try again, Thanks. ');
+            });
     };
+
     return (
         <>
             <Form onSubmit={submitHandler} className={styles.form}>
                 {displayFormFields(signupFieldArray, formik)}
-                <Button type='submit' onClick={signInHandler} text='Signup' />;
+                <Button type='submit' text='Signup' />;
             </Form>
         </>
     );
