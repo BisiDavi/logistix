@@ -7,7 +7,8 @@ const Profile = () => {
     const [session] = useSession();
     console.log('session', session);
     const userName =
-        (session !== null && session.user.name) || session.user.email;
+        (session !== undefined && session.user.name) ||
+        (session !== undefined && session.user.email);
     return (
         <div className='profile'>
             {session ? (

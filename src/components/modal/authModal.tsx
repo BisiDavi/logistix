@@ -15,7 +15,11 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
     };
     const signInHandler = (name: string): any =>
         signIn(name)
-            .then(() => toast.success("You're now signed in"))
+            .then(() =>
+                toast.success(
+                    `wait, you'll be redirected to ${name}, for authentication`,
+                ),
+            )
             .catch(() => toast.error('An error occured, please try again'));
 
     return (
