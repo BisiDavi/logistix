@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { PageTitle, TextAnimate, ImageSlider } from '@components/.';
-import FirebaseAuth from '@firebase/auth';
 import { ToastContainer } from 'react-toastify';
 import Section from '@components/text/section';
 import EmailModal from '@components/modal/EmailModal';
@@ -14,8 +13,8 @@ const Home = ({ isConnected }) => {
         confirmationEmail: '',
         details: null,
     });
-    const { handleSignIn } = FirebaseAuth();
-    const fetchData = async () => {
+
+		const fetchData = async () => {
         await fetch('/api/core-values', {
             headers: {
                 'Content-Type': 'application/json',
@@ -36,10 +35,6 @@ const Home = ({ isConnected }) => {
 
     useEffect(() => {
         fetchData();
-    }, []);
-
-    useEffect(() => {
-        handleSignIn(user, setUser);
     }, []);
 
     return (

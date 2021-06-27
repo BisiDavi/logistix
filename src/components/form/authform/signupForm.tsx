@@ -36,12 +36,15 @@ const SignupForm = () => {
 
     const signInHandler = (userEmail) => {
         console.log('userEmail', userEmail);
-        return signIn('email', { userEmail })
+        return signIn('email', { email: userEmail })
             .then((response) => {
                 console.log('response', response);
 
-                return response !== undefined && toast.success(
-                    'Please verify the link sent to your email address',
+                return ( 
+                    response !== undefined &&
+                    toast.success(
+                        'Please verify the link sent to your email address',
+                    )
                 );
             })
             .catch((error) => {
@@ -52,7 +55,12 @@ const SignupForm = () => {
 
     return (
         <>
-            <Form onSubmit={submitHandler} className={styles.form}>
+            <Form
+                method='post'
+                action='/api/auth/signin/email'
+                onSubmit={submitHandler}
+                className={styles.form}
+            >
                 {displayFormFields(signupFieldArray, formik)}
                 <Button type='submit' text='Signup' />;
             </Form>

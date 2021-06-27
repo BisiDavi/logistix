@@ -89,13 +89,11 @@ function MyApp({ Component, pageProps }) {
                 {loading && <Loading />}
                 <CssBaseline />
 
-                <FirebaseProvider>
-                    <Provider store={store}>
-                        <Pagelayout>
-                            <Component {...pageProps} />
-                        </Pagelayout>
-                    </Provider>
-                </FirebaseProvider>
+                <Provider store={store}>
+                    <Pagelayout>
+                        <Component {...pageProps} />
+                    </Pagelayout>
+                </Provider>
             </div>
         </AuthProvider>
     );
