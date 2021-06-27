@@ -28,7 +28,7 @@ export default function Profile() {
                         display: flex;
                         flex-direction: column;
                         background-color: white;
-                        height: 100vh;
+                        max-height: 100vh;
                     }
                     .welcome-note {
                         height: 30px;
