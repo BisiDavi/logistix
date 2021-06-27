@@ -4,8 +4,8 @@ import Providers from 'next-auth/providers';
 export default NextAuth({
     providers: [
         Providers.Email({
-            server: process.env.NEXT_PUBLIC_EMAIL_SERVER,
-            from: process.env.NEXT_PUBLIC_EMAIL_FROM,
+            server: process.env.EMAIL_SERVER,
+            from: process.env.EMAIL_FROM,
         }),
         Providers.Google({
             clientId: process.env.NEXT_PUBLIC_GOOGLE_ID,
