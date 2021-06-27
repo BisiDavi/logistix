@@ -15,7 +15,7 @@ const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
     return (
         <Container as='nav' fluid className={`${styles.nav} p-3`}>
             <Row className='justify-content-between align-items-center'>
-                {!session && loading} && <Loading />
+                {!session && loading && <Loading />}
                 <Col xs={2}>
                     <Hamburger onClick={onOpen} />
                 </Col>

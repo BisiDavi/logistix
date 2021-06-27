@@ -28,13 +28,13 @@ const AuthModal: FC<AuthModalProps> = ({ show, onHide }) => {
                         <div className='socialLogin'>
                             <span className='mx-2'>
                                 <FaFacebook
-                                    onClick={signInHandler('facebook')}
+                                    onClick={() => signInHandler('facebook')}
                                     size='25px'
                                 />
                             </span>
                             <span className='mx-2'>
                                 <FaGoogle
-                                    onClick={signInHandler('google')}
+                                    onClick={() => signInHandler('google')}
                                     size='25px'
                                 />
                             </span>
