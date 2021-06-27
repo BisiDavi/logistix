@@ -22,6 +22,10 @@ export default NextAuth({
         jwt: true,
         maxAge: 30 * 24 * 60 * 60,
     },
+    pages: {
+        signIn: '/',
+        verifyRequest: '/',
+    },
     events: {},
     debug: true,
 });
