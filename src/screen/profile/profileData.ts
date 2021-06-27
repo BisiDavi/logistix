@@ -1,5 +1,5 @@
-export const typeWords = [
-    '<h5>Welcome <span style="color:#c85a5f;;">Smith</span> </h5>',
+export const typeWords = (name) => [
+    `<h5>Welcome <span style="color:#c85a5f;;">${name}</span> </h5>`,
     '<h5>Thanks for using <span style="color:#c85a5f;">Logistix</span></h5>',
 ];
 

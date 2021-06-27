@@ -1,11 +1,13 @@
 import React from 'react';
+import { useSession } from 'next-auth/client';
 import { Button, PageTitle } from '@components/.';
 import { Dropdown } from '@components/buttons';
 import { deliveryDetails, pickupDetails } from '@utils/profileDetails';
 import { userData, nameInitials } from './profileData';
 
 const UserTab = () => {
-    const { name, phoneNumber, location, email, sex } = userData;
+    const [session] = useSession();
+    const { name, phoneNumber, location } = userData;
     return (
         <div className='profilePage'>
             <PageTitle title='Profile' />
@@ -13,11 +15,10 @@ const UserTab = () => {
                 <div className='user-profile mt-2'>
                     <div className='profile-icon'>{nameInitials(name)}</div>
                     <div className='user-details'>
-                        <h5>Name:{name}</h5>
+                        <h5>Name:{session.user.name || session.user.email}</h5>
                         <h5>Phone number: {phoneNumber}</h5>
                         <h5>Location: {location}</h5>
-                        <h5>Email: {email}</h5>
-                        <h5>Sex: {sex}</h5>
+                        <h5>Email: {session.user.email}</h5>
                     </div>
                 </div>
                 <Dropdown data={pickupDetails} />

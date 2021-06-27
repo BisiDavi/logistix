@@ -1,14 +1,28 @@
 import React from 'react';
 import { ProfileScreen, typeWords } from '@screen/.';
+import { useSession } from 'next-auth/client';
 import { TypewriterEffect } from '@components/.';
 
 const Profile = () => {
+    const [session] = useSession();
+    console.log('session', session);
+    const userName =
+        (session !== null && session.user.name) || session.user.email;
     return (
         <div className='profile'>
-            <div className='welcome-note d-flex mx-auto my-2'>
-                <TypewriterEffect words={typeWords} />
-            </div>
-            <ProfileScreen />
+            {session ? (
+                <>
+                    <div className='welcome-note d-flex mx-auto my-2'>
+                        <TypewriterEffect words={typeWords(userName)} />
+                    </div>
+                    <ProfileScreen />
+                </>
+            ) : (
+                <p>
+                    Hello, You need to sign up to view profile. Please click on
+                    the signup button
+                </p>
+            )}
             <style jsx>
                 {`
                     .profile {

@@ -42,6 +42,8 @@ const Nav: FC<NavProps> = ({ onOpen, toggleAuth }) => {
                     p.username {
                         font-size: 12px;
                         font-weight: bold;
+                        text-align: right;
+                        margin: 10px 0;
                     }
                 `}
             </style>
