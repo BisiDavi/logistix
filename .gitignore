@@ -31,7 +31,10 @@ yarn-error.log*
 .env.production.local
 .env
 # vercel
+env
 .vercel
 yarn.lock
 
-/firebase
+
+/.vscode
+vscode
