@@ -37,16 +37,11 @@ const SignupForm = () => {
     const signInHandler = (userEmail) => {
         console.log('userEmail', userEmail);
         return signIn('email', { email: userEmail })
-            .then((response) => {
-                console.log('response', response);
-
-                return ( 
-                    response !== undefined &&
-                    toast.success(
-                        'Please verify the link sent to your email address',
-                    )
-                );
-            })
+            .then(() =>
+                toast.success(
+                    'Please verify the link sent to your email address',
+                ),
+            )
             .catch((error) => {
                 console.log('signup error', error);
                 toast.error('An error occured please try again, Thanks. ');
