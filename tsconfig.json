@@ -45,5 +45,5 @@
         "next-env.d.ts",
         "next.config.js",
         "src/components/typewriter/index.jsx"
-    ]
+, "src/components/map/index.jsx"    ]
 }
