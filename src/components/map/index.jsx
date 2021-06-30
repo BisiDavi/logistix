@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { GoogleMap, Marker } from '@react-google-maps/api';
-import styles from '../../styles/map.module.css';
+import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
+import styles from '@styles/map.module.css';
 
 function Map({ address, userLocation }) {
     const [map, setMap] = useState(null);
