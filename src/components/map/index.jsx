@@ -27,21 +27,16 @@ function Map({ address, userLocation }) {
     console.log('google map', map);
 
     return (
-        <LoadScript
-            libraries={['places']}
-            googleMapsApiKey={process.env.NEXT_PUBLIC_APIKEY}
+        <GoogleMap
+            id='google-map'
+            mapContainerStyle={containerStyle}
+            zoom={10}
+            center={center}
+            mapContainerClassName={styles.map}
+            onLoad={onLoad}
         >
-            <GoogleMap
-                id='google-map'
-                mapContainerStyle={containerStyle}
-                zoom={10}
-                center={center}
-                mapContainerClassName={styles.map}
-                onLoad={onLoad}
-            >
-                <Marker draggable={true} onLoad={onLoad} position={position} />
-            </GoogleMap>
-        </LoadScript>
+            <Marker draggable={true} onLoad={onLoad} position={position} />
+        </GoogleMap>
     );
 }
 
