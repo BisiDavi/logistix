@@ -45,6 +45,7 @@ function Map({ address, userLocation }) {
                 mapContainerStyle={containerStyle}
                 zoom={10}
                 center={center}
+                mapContainerClassName={styles.map}
                 onLoad={onLoad}
                 onUnmount={onUnmount}
             >
