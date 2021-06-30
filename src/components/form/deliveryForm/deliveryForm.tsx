@@ -109,7 +109,7 @@ export default function DeliveryForm() {
                         position: absolute;
                         right: 30px;
                         bottom: 50px;
-                        background-color: #c85a5f14;
+                        background-color: #c85a5f;
                         color: white;
                         font: bold normal 20px/21px 'Roboto', sans-serif;
                         border: none;
