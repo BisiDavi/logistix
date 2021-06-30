@@ -38,7 +38,6 @@ function Map({ address, userLocation }) {
                 center={center}
                 mapContainerClassName={styles.map}
                 onLoad={onLoad}
-                onUnmount={onUnmount}
             >
                 <Marker draggable={true} onLoad={onLoad} position={position} />
             </GoogleMap>
