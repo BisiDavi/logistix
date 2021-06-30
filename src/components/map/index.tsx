@@ -11,13 +11,13 @@ export default function Map({ address, userLocation }) {
         height: '600px',
     };
     const center = {
-        lat: userLocation.latitude,
-        lng: userLocation.longitude,
+        lat: userLocation !== null ? userLocation.latitude : '',
+        lng: userLocation !== null ? userLocation.longitude : '',
     };
 
     const position = {
-        lat: userLocation.latitude,
-        lng: userLocation.longitude,
+        lat: userLocation !== null ? userLocation.latitude : '',
+        lng: userLocation !== null ? userLocation.longitude : '',
     };
     return (
         <GoogleMap

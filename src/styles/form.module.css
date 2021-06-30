@@ -26,7 +26,7 @@
 .form span .prepend {
     width: 15%;
     height: 40px;
-		position:relative;
+    position: relative;
 }
 
 .form button {
@@ -50,29 +50,31 @@
 .deliveryForm {
     padding: 20px;
     background-color: white;
-    opacity: 0.75;
+    /*opacity: 0.75;*/
+    z-index: 4;
 }
 
-.prepend img{
-	height: 30px;
-	margin-left:-5px;
-  animation: MoveUpDown 1s linear infinite;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.prepend img {
+    height: 30px;
+    margin-left: -5px;
+    animation: MoveUpDown 1s linear infinite;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 @keyframes MoveUpDown {
-  0%, 100% {
-    bottom: 0;
-  }
-  50% {
-    bottom: 5px;
-  }
+    0%,
+    100% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 5px;
+    }
 }
 
-.prependInput{
-	margin:10px 0px;
+.prependInput {
+    margin: 10px 0px;
 }
 
 .prependInput input {
