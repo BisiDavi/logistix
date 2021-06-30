@@ -8,16 +8,16 @@ export default function Map({ address, userLocation }) {
     }
     const containerStyle = {
         width: '100%',
-        height: '600px',
+        height: '100vh',
     };
     const center = {
-        lat: userLocation !== null ? userLocation.latitude : '',
-        lng: userLocation !== null ? userLocation.longitude : '',
+        lat: userLocation !== null ? userLocation.latitude : 6.537216,
+        lng: userLocation !== null ? userLocation.longitude : 3.3456128,
     };
 
     const position = {
-        lat: userLocation !== null ? userLocation.latitude : '',
-        lng: userLocation !== null ? userLocation.longitude : '',
+        lat: userLocation !== null ? userLocation.latitude : 6.537216,
+        lng: userLocation !== null ? userLocation.longitude : 3.3456128,
     };
     return (
         <GoogleMap

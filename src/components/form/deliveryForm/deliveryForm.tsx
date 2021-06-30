@@ -50,10 +50,13 @@ export default function DeliveryForm() {
 
     return (
         <div className='delivery-form position-relative'>
-            <div className='overlay' onClick={() => setShowForm(false)}></div>
             <Map userLocation={userLocation} address={setMapDeliveryAddress} />
-            <div className='form-wrapper'>
-                {showForm ? (
+            {showForm ? (
+                <>
+                    <div
+                        className='overlay'
+                        onClick={() => setShowForm(false)}
+                    ></div>
                     <Form
                         className={`${styles.form} ${styles.deliveryForm} mx-auto`}
                         onSubmit={submitHandler}
@@ -69,15 +72,12 @@ export default function DeliveryForm() {
                             <Button type='submit' text='Proceed' />
                         </>
                     </Form>
-                ) : (
-                    <button
-                        className='continue'
-                        onClick={() => setShowForm(false)}
-                    >
-                        Continue
-                    </button>
-                )}
-            </div>
+                </>
+            ) : (
+                <button className='continue' onClick={() => setShowForm(true)}>
+                    Continue
+                </button>
+            )}
             <style jsx>
                 {`
                     .delivery-form {
@@ -86,15 +86,15 @@ export default function DeliveryForm() {
                         display: flex;
                         flex-direction: column;
                     }
-										.form-wrapper{
-											display:flex;
-											height:100%;
-											width:100%;
-											margin:auto;
-											justify-content:center;
-											align-items:center;
-											position:relative;
-										}
+                    .form-wrapper {
+                        display: flex;
+                        height: 100%;
+                        width: 100%;
+                        margin: auto;
+                        justify-content: center;
+                        align-items: center;
+                        position: relative;
+                    }
                     .overlay {
                         background-color: black;
                         opacity: 0.5;
@@ -109,11 +109,12 @@ export default function DeliveryForm() {
                         position: absolute;
                         right: 30px;
                         bottom: 50px;
-												background-color:: #c85a5f14;
-												color:white;
-												font: bold normal 20px/21px 'Roboto', sans-serif;
-												border:none;
-												border-radius:5px;
+                        background-color: #c85a5f14;
+                        color: white;
+                        font: bold normal 20px/21px 'Roboto', sans-serif;
+                        border: none;
+                        border-radius: 5px;
+                        padding: 5px 10px;
                     }
                 `}
             </style>
