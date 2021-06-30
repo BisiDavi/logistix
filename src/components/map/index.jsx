@@ -5,6 +5,11 @@ import styles from '../../styles/map.module.css';
 function Map({ address, userLocation }) {
     const [map, setMap] = useState(null);
 
+    function onLoad(marker) {
+        console.log('marker', marker);
+        address(marker);
+    }
+
     const containerStyle = {
         width: '100%',
         height: '100%',
