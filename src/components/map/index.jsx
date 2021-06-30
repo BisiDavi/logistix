@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import PuffLoader from 'react-spinners/PuffLoader';
+import styles from '../../styles/map.module.css';
 
 function Map({ address, userLocation }) {
     const [map, setMap] = useState(null);
